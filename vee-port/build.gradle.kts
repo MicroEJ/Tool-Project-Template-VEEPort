@@ -5,10 +5,6 @@ plugins {
 group = "com.mycompany"
 version = "0.1.0-RC"
 
-microej {
-    architectureUsage = "eval" // or "prod"
-}
-
 dependencies {
     //Uncomment the microejArchitecture dependency to set the Architecture
     //microejArchitecture("com.mycompany:myarchitecture:1.0.0")
@@ -17,4 +13,8 @@ dependencies {
     //microejPack("com.mycompany:mypack:1.0.0")
 
     microejFrontPanel(project(":vee-port:front-panel"))
+
+    microejMock(project(":vee-port:mock"))
+
+    microejTool(project(":vee-port:image-generator"))
 }
