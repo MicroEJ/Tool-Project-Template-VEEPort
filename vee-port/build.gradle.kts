@@ -6,8 +6,7 @@ group = "com.mycompany"
 version = "0.1.0-RC"
 
 dependencies {
-    //Uncomment the microejArchitecture dependency to set the Architecture
-    //microejArchitecture("com.mycompany:myarchitecture:1.0.0")
+    microejArchitecture("com.microej.architecture.CM4.CM4hardfp_GCC48:flopi4G25:8.2.0")
 
     //Uncomment the microejPack dependency to set a Pack
     //microejPack("com.mycompany:mypack:1.0.0")
