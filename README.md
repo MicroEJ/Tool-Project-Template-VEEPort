@@ -96,10 +96,6 @@ for more details.
 
 ### BSP Compilation
 
-The <VEE_PORT> provides a pre-compiled Standalone Application.
-Validate the BSP installation by compiling the BSP to build a <BOARD_NAME>
-Firmware.
-
 To build the `veeport-bsp` project, open a
 terminal and enter the following command lines:
 
@@ -124,16 +120,25 @@ To flash all build output, run 'make flash' or:
 ```
 
 The build script expects the toolchain to be installed at a known
-path.  If you installed it elsewhere, see [README BSP](./README_BSP.md) for
-how to customize its path.
+location. You can configure it, if you installed it elsewhere, by overriding
+environment variables. The environment variables are declared in the 
+`set_project_env*` script. They can be defined globally by the user or 
+in the `set_local_env*` scripts. When the `build.bat` (`build.sh`) 
+scripts is executed, the `set_local_env.bat` (`set_local_env.sh`) script
+is imported if it exists. Create and configure these files to
+customize the environment locally. Template files are provided as
+example, see `set_local_env.bat.tpl` and `set_local_env.sh.tpl`.
 
-Please refer to [README BSP](./README_BSP.md) for more details on how to
-customize the build scripts.
+_Note:_ Please refer to the following public documentation link to get more details on this part:
+- [VEE Port BSP Connection specification](https://docs.microej.com/en/latest/VEEPortingGuide/platformCreation.html#bsp-connection) 
+- [VEE Port Creation Training](https://docs.microej.com/en/latest/Trainings/tutorialCreatePlatformBuildAndRunScripts.html)
 
 ## Board Setup
 
 Please refer to the <BOARD_MANUFACTURER> documentation available [here](<board_setup_documentation_url>)
 for more details.
+
+<Provide here image(s) of the board showing important things for the board setup (power supply connector, programming connector, logs output connector, jumpers configuration, etc.)>
 
 ### Power Supply
 
@@ -194,12 +199,15 @@ the UART.
 Please refer to the <BOARD_MANUFACTURER> documentation available  [here](<board_logs_setup_documentation_url>)
 for more details.
 
-### Debugging
+### Firmware Debugging and Profiling
+
+#### Firmware Debugging
 
 <Firmware debugging can be done using ...>
 
-Please refer to the [README BSP](./README_BSP.md) section debugging for more
-details.
+#### Firmware Profiling With SEGGER SystemView
+
+<Firmware profiling analysis with SEGGER SystemView can be done using ...>
 
 ## <VEE_PORT> Setup
 
