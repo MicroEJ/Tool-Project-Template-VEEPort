@@ -2,9 +2,6 @@ plugins {
     id("com.microej.gradle.application") version "0.20.0"
 }
 
-group="com.mycompany"
-version="0.1.0-RC"
-
 microej {
     applicationEntryPoint = "com.mycompany.myapplication.Main"
     architectureUsage = "eval" // or "prod"

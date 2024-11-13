@@ -2,9 +2,6 @@ plugins {
     id("com.microej.gradle.veeport") version "0.20.0"
 }
 
-group = "com.mycompany"
-version = "0.1.0-RC"
-
 dependencies {
     microejArchitecture("com.microej.architecture.CM4.CM4hardfp_GCC48:flopi4G25:8.2.0")
 
