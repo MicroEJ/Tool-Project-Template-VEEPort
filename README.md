@@ -193,8 +193,6 @@ for more details.
 | Stop bits       | <Stop bits value>       |
 | Flow control    | <Flow control value>    |
 
-If flashed, the pre-compiled application outputs `Hello World` on
-the UART.
 
 Please refer to the <BOARD_MANUFACTURER> documentation available  [here](<board_logs_setup_documentation_url>)
 for more details.
