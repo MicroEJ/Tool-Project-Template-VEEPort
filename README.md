@@ -211,79 +211,60 @@ for more details.
 
 ### <VEE_PORT> Import
 
-Import the projects in SDK Workspace:
+[Open the VEE Port project in your favorite IDE](https://docs.microej.com/en/latest/SDK6UserGuide/importProject.html) 
+by selecting the root folder of the cloned repository.
 
-- `File` > `Import` > `Existing Projects into Workspace` >
-  `Next`
-- Point `Select root directory` to where the project was cloned.
-- Click `Finish`
+The project contains the following subprojects:
 
-Inside SDK, the selected example is imported as several projects
-prefixed by the given name:
-
-- `veeport-configuration`: Contains the
-  <VEE_PORT> configuration description. Some modules are described in a
-  specific sub-folder / with some optional configuration files
+- `vee-port`: Contains the <VEE_PORT> configuration description. 
+  Some modules are described in a specific sub-folder / with some optional configuration files
   (`.properties` and / or `.xml`).
 
-- `veeport-bsp`: Contains a ready-to-use BSP
-  software project for the <BOARD_NAME> board, including a
-  <CIDE> project, an implementation of MicroEJ core engine (and
-  extensions) port on <RTOS> and the <BOARD_NAME> board
-  support package.
+- `bsp`: Contains a ready-to-use BSP software project for the <BOARD_NAME> board, including a <CIDE> project, 
+  an implementation of MicroEJ Core Engine (and extensions) port on <RTOS> and the <BOARD_NAME> board support package.
 
-- `veeport-fp`: Contains the board description
-  and images for the Simulator. This project is updated once the <VEE_PORT>
-  is built.
+- `vee-port/extensions/front-panel`: Contains the board description and images for the Simulator. 
+  This project is updated once the <VEE_PORT> is built.
 
-- `<VEE Port Hardware Part Number>-VEEPort-<MicroEJ Architecture toolchain name>-{version}`:
-  Contains the SDK <VEE_PORT> project which is empty by default until
-  the <VEE_PORT> is built.
+- `vee-port/extensions/image-generator`: Contains the Image Generator extension.
+  This project is updated once the <VEE_PORT> is built.
+
+- `vee-port/mock`: Contains a Mock.
+  This project is updated once the <VEE_PORT> is built.
+
+- `app`: Contains a sample application which uses the <VEE_PORT>.
 
 By default, the <VEE_PORT> is configured as a Mono-Sandbox Evaluation
 <VEE_PORT> (Please refer to the [RELEASE NOTES](./RELEASE_NOTES.md) limitations section for more details).
 
 ### <VEE_PORT> Build
 
-To build the <VEE_PORT>, please follow the steps below:
+To build the <VEE_PORT>, use one of these 2 solutions:
 
-- Right-click on `veeport-configuration` project in your SDK workspace.
-- Click on `Build Module`.
+- Run the `app` sample Application [on the Simulator](https://docs.microej.com/en/latest/SDK6UserGuide/runOnSimulator.html) 
+  or [on Device](https://docs.microej.com/en/latest/SDK6UserGuide/runOnDevice.html). 
+  This automatically builds the <VEE_PORT> and uses it.
+- Launch the `buildVeePort` Gradle task on the `vee-port` project. 
+  This builds the <VEE_PORT> in the `vee-port/build/veePort` folder.
 
-The build starts.  This step may take several minutes.  The first
-time, the <VEE_PORT> build requires to download modules that are
-available on the MicroEJ Central Repository.  You can see the progress
-of the build steps in the SDK console.
+The build may take several minutes. 
+The first time, the <VEE_PORT> build requires to download modules that are available on the MicroEJ Central Repository.
 
-Please wait for the final message:
+Please wait for the Application start, or for the final message:
 
 ```sh
 BUILD SUCCESSFUL
 ```
 
-At the end of the execution the <VEE_PORT> is fully built for the
-<BOARD_NAME> board and is ready to be used.
-
-
-The <VEE_PORT> project should be refreshed with no error in the SDK
-`<VEEPort Hardware Part Number>-VEEPort-<MicroEJ Architecture toolchain name>-{version}`.
-
-Please refer to
-https://docs.microej.com/en/latest/ApplicationDeveloperGuide/standaloneApplication.html
-for more information on how to build a MicroEJ Standalone Application.
-
-An evaluation license is needed for building an application. Please refer to
-https://docs.microej.com/en/latest/overview/licenses.html#evaluation-license
+An evaluation license is needed for building an Application. Please refer to
+https://docs.microej.com/en/latest/SDK6UserGuide/licenses.html#evaluation-licenses
 for information on how to acquire and activate a license.
 
 ## Testsuite Configuration
 
 <To run a Testsuite on ...>
 
-In `config.properties`, the property `target.platform.dir` must be
-set to the absolute path to the VEE Port.  For example
-`C:/<VEE Port root directory path>/<VEE Port project name>/source`.
-
+Each testsuite can be configured in the `config.properties` file located at the root of the testsuite project.
 
 ## Troubleshooting
 
