@@ -25,8 +25,8 @@ This directory also contains:
 
 ## Board Technical Specifications
 
-|                         |                                 |
-| ----------------------- | ------------------------------- |
+| Property                | Value                           |
+| ----------------------- |---------------------------------|
 | Name                    | <BOARD_NAME>                    |
 | Revision                | <BOARD_REVISION>                |
 | MCU part number         | <Board MCU part number>         |
@@ -185,13 +185,13 @@ for more details.
 
 <The COM port uses the following parameters:>
 
-|                 |                         |
-| --------------- | ----------------------- |
-| Baudrate        | <Baudrate value>        |
-| Data bits bits  | <Data bits bits value>  |
-| Parity bits     | <Parity bits value>     |
-| Stop bits       | <Stop bits value>       |
-| Flow control    | <Flow control value>    |
+| Parameter      | Value                   |
+|----------------| ----------------------- |
+| Baudrate       | <Baudrate value>        |
+| Data bits bits | <Data bits bits value>  |
+| Parity bits    | <Parity bits value>     |
+| Stop bits      | <Stop bits value>       |
+| Flow control   | <Flow control value>    |
 
 
 Please refer to the <BOARD_MANUFACTURER> documentation available  [here](<board_logs_setup_documentation_url>)
