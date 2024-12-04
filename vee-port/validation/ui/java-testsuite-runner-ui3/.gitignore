@@ -1,0 +1,4 @@
+build/
+.gradle/
+com.microej.ui.tests.*/
+local.properties
