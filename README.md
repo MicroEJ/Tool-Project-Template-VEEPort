@@ -96,7 +96,7 @@ for more details.
 
 ### BSP Compilation
 
-To build the `veeport-bsp` project, open a
+To build the `bsp` project, open a
 terminal and enter the following command lines:
 
 **On Windows:**
