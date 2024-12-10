@@ -239,15 +239,13 @@ By default, the <VEE_PORT> is configured as a Mono-Sandbox Evaluation
 
 ### <VEE_PORT> Build
 
-To build the <VEE_PORT>, use one of these 2 solutions:
+To build the <VEE_PORT>:
 
 - Run the `app` sample Application [on the Simulator](https://docs.microej.com/en/latest/SDK6UserGuide/runOnSimulator.html) 
   or [on Device](https://docs.microej.com/en/latest/SDK6UserGuide/runOnDevice.html). 
   This automatically builds the <VEE_PORT> and uses it.
-- Launch the `buildVeePort` Gradle task on the `vee-port` project. 
-  This builds the <VEE_PORT> in the `vee-port/build/veePort` folder.
 
-The build may take several minutes. 
+The build may take several minutes.
 The first time, the <VEE_PORT> build requires to download modules that are available on the MicroEJ Central Repository.
 
 Please wait for the Application start, or for the final message:
