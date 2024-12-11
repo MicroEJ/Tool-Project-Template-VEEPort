@@ -1,8 +1,5 @@
 @echo off
 
-REM Copyright 2024 MicroEJ Corp. All rights reserved.
-REM Use of this source code is governed by a BSD-style license that can be found with this software.
-
 REM 'run.bat' implementation for STM32 Cube Programmer.
 REM 'run.bat' is responsible for flashing the executable file on the target device then resetting target device
 

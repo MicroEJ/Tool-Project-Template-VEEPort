@@ -269,8 +269,3 @@ Each testsuite can be configured in the `config.properties` file located at the 
 ## Troubleshooting
 
 <List all troubleshoots here.>
-
----
-_Markdown_  
-_Copyright 2024 MicroEJ Corp. All rights reserved._  
-_Use of this source code is governed by a BSD-style license that can be found with this software._  

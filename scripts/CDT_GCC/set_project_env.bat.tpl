@@ -1,8 +1,5 @@
 @echo off
 
-REM Copyright 2020-2021 MicroEJ Corp. All rights reserved.
-REM Use of this source code is governed by a BSD-style license that can be found with this software.
-
 REM 'set_project_env.bat' implementation for ECLIPSE_CDT.
 
 REM 'set_project_env' is responsible for
