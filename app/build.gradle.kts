@@ -8,7 +8,7 @@ microej {
 
 microej {
     applicationEntryPoint = "com.mycompany.myapplication.Main"
-    architectureUsage = "eval" // or "prod"
+    architectureUsage = System.getProperty("com.microej.architecture.usage") ?: "eval" // or "prod"
 }
 
 dependencies {
