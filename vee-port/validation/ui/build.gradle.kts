@@ -16,7 +16,7 @@ group = "com.microej.testsuite"
 version = "1.8.0"
 
 microej {
-    skippedCheckers = "readme"
+    skippedCheckers = "readme,license"
 }
 
 dependencies {

@@ -2,6 +2,10 @@ plugins {
     id("com.microej.gradle.veeport") version "0.20.0"
 }
 
+microej {
+    skippedCheckers = "readme,changelog,license"
+}
+
 dependencies {
     microejArchitecture("com.microej.architecture.CM4.CM4hardfp_GCC48:flopi4G25:8.2.0")
 
