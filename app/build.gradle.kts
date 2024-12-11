@@ -3,6 +3,10 @@ plugins {
 }
 
 microej {
+    skippedCheckers = "readme,changelog,license,nullanalysis"
+}
+
+microej {
     applicationEntryPoint = "com.mycompany.myapplication.Main"
     architectureUsage = "eval" // or "prod"
 }

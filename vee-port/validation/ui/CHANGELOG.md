@@ -7,29 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Relationship
 
-See [UI Readme](../README.md) to have more information about the relationship between the version of the test suite and the UI Pack.
+See [UI Readme](README.md) to have more information about the relationship between the version of the test suite and the UI Pack.
 
 ## [14.2.0] - 2024-11-18
 
 ### Changed
 
-- UI Test Suite 14.2.0 that tests the UI Pack 14.2.0 (see [UI Readme](../README.md)).
+- UI Test Suite 14.2.0 that tests the UI Pack 14.2.0 (see [UI Readme](README.md)).
 - Move the test ``MicroejUiValidation`` in the UI testsuite jar (and remove the nature ``java`` of this project).
 - Gather all GPU tests in the package ``/com/microej/microui/test/gpu``.
-- Update the [UI Readme](../README.md).
+- Update the [UI Readme](README.md).
 
 ## [14.1.1] - 2024-10-17
 
 ### Changed
  
 - Align the version numbering to match the version number the UI Pack.
-- UI Test Suite 14.1.1 that tests the UI Pack 14.1.1 (see [UI Readme](../README.md)).
+- UI Test Suite 14.1.1 that tests the UI Pack 14.1.1 (see [UI Readme](README.md)).
 
 ## [1.8.0] - 2024-10-03
 
 ### Changed
 
-- UI Test Suite 1.8.1 that includes  a bench to check the VEE Port evolution (see [UI Readme](../README.md)).
+- UI Test Suite 1.8.1 that includes  a bench to check the VEE Port evolution (see [UI Readme](README.md)).
 
 ### Fixed
 
@@ -50,7 +50,7 @@ See [UI Readme](../README.md) to have more information about the relationship be
 
 ### Added
 
-- Relationship table between the version of the test suite and the UI Pack in [UI Readme](../README.md).
+- Relationship table between the version of the test suite and the UI Pack in [UI Readme](README.md).
 
 ### Changed
 
