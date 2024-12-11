@@ -1,7 +1,5 @@
 # Python
 #
-# Copyright 2019-2021 MicroEJ Corp. All rights reserved.
-# Use of this source code is governed by a BSD-style license that can be found with this software.
 
 # This script combines multiple files into a single file, by placing them at specific addresses and padding the output with 0xFF bytes.
 # Usage: `python combine_binaries.py output-filename [input-addr input-filename]*`

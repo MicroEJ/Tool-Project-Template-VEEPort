@@ -150,8 +150,3 @@ Information on MicroEJ memory sections can be found [here](<bsp_microej_memory_s
 
 Please also refer to the MicroEJ docs website page available [here](<https://docs.microej.com/en/latest/VEEPortingGuide/coreEngine.html#link>)
 for more details.
-
----
-_Markdown_  
-_Copyright 2024 MicroEJ Corp. All rights reserved._  
-_Use of this source code is governed by a BSD-style license that can be found with this software._  

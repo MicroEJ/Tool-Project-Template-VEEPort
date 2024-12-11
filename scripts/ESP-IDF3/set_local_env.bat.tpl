@@ -1,6 +1,4 @@
 REM BAT
-REM Copyright 2020-2021 MicroEJ Corp. All rights reserved.
-REM Use of this source code is governed by a BSD-style license that can be found with this software.
 
 REM Set Espressif toolchain installation directory default value recommanded by Espressif (see https://docs.espressif.com/projects/esp-idf/en/v3.3.4/get-started/windows-setup.html#toolchain-setup)
 SET MSYS_PATH=C:\msys32\
