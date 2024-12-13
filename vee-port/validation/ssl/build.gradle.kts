@@ -27,17 +27,17 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("ej.api:edc:1.3.3")
-                implementation("ej.api:bon:1.4.0")
-                implementation("ej.api:ssl:2.2.1")
-                implementation("ej.api:net:1.1.2")
-                implementation("com.microej.pack.net:net-ssl-2_2-testsuite:5.0.0")
-                implementation("com.microej.pack.net:net-ssl-2_2-testsuite-openjdk:2.0.0")
+                implementation(libs.edc)
+                implementation(libs.bon)
+                implementation(libs.ssl)
+                implementation(libs.net)
+                implementation(libs.ssl.testsuite)
+                implementation(libs.ssl.openjdk.testsuite)
                 // Add the following dependency if running the testsuite over Wi-Fi.
-                // implementation("com.microej.pack.net:net-1_1-testsuite-wifi:2.1.1")
+                // implementation(libs.net.wifi.testsuite)
             }
 
             targets {

@@ -27,14 +27,14 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("com.microej.pack.fs:fs-testsuite:3.0.8")
-                implementation("com.microej.pack.fs:fs-testsuite-openjdk:1.0.1")
-                implementation("ej.api:edc:1.3.2")
-                implementation("ej.api:bon:1.3.0")
-                implementation("ej.api:fs:2.1.0")
+                implementation(libs.fs.testsuite)
+                implementation(libs.fs.openjdk.testsuite)
+                implementation(libs.edc)
+                implementation(libs.bon)
+                implementation(libs.fs)
             }
 
             targets {

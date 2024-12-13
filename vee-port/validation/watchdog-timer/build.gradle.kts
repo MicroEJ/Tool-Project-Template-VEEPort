@@ -27,12 +27,13 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.api:edc:1.3.5")
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("ej.api:watchdog-timer:2.0.0")
-                implementation("com.microej.pack.watchdog-timer:watchdog-timer-testsuite:3.0.0")
+                implementation(libs.edc)
+                implementation(libs.bon)
+                implementation(libs.watchdog.timer)
+                implementation(libs.watchdog.timer.testsuite)
             }
 
             targets {

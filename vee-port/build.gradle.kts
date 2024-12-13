@@ -7,7 +7,7 @@ microej {
 }
 
 dependencies {
-    microejArchitecture("com.microej.architecture.CM4.CM4hardfp_GCC48:flopi4G25:8.2.0")
+    microejArchitecture(libs.architecture)
 
     //Uncomment the microejPack dependency to set a Pack
     //microejPack("com.mycompany:mypack:1.0.0")

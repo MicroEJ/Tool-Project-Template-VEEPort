@@ -27,15 +27,15 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("com.microej.pack.gnss:gnss-testsuite:2.0.0")
-                implementation("ej.api:edc:1.3.5")
-                implementation("ej.api:bon:1.4.0")
-                implementation("ej.api:gnss:2.0.0")
-                implementation("com.microej.pack.gnss:gnss-init-api:1.0.0")
-                implementation("ej.library.eclasspath:logging:1.2.1")
+                implementation(libs.gnss)
+                implementation(libs.edc)
+                implementation(libs.bon)
+                implementation(libs.gnss.testsuite)
+                implementation(libs.gnss.init.api)
+                implementation(libs.eclasspath.logging)
             }
 
             targets {

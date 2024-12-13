@@ -7,7 +7,7 @@ microej {
 }
 
 dependencies {
-    implementation("com.microej.pack.ui:ui-pack:14.0.1") {
+    implementation(libs.pack.ui) {
         artifact {
             name = "imageGenerator"
             extension = "jar"

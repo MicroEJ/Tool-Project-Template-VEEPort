@@ -27,15 +27,15 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("com.microej.pack.net:net-1_1-testsuite:4.1.1")
-                implementation("com.microej.pack.net:net-1_1-testsuite-openjdk:1.1.1")
-                implementation("ej.api:net:1.1.1")
+                implementation(libs.net.testsuite)
+                implementation(libs.net.openjdk.testsuite)
+                implementation(libs.net)
 
                 // Add the following dependency if running the testsuite over Wi-Fi.
-                // implementation("com.microej.pack.net:net-1_1-testsuite-wifi:2.1.1")
+                // implementation(libs.net.wifi.testsuite)
             }
 
             targets {

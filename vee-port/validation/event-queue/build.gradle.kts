@@ -27,11 +27,11 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("com.microej.pack.event:event-testsuite:2.1.0")
-                implementation("ej.api:event:2.1.0")
+                implementation(libs.event.testsuite)
+                implementation(libs.event)
             }
 
             targets {
