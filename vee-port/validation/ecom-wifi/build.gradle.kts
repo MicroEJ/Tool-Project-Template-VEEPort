@@ -27,12 +27,12 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("com.microej.pack.ecom-wifi:ecom-wifi-2_1-testsuite:0.2.0")
-                implementation("ej.api:ecom-wifi:2.1.2")
-                implementation("ej.api:net:1.1.1")
+                implementation(libs.ecom.wifi.testsuite)
+                implementation(libs.ecom.wifi)
+                implementation(libs.net)
             }
 
             targets {

@@ -1,0 +1,44 @@
+[libraries]
+# APIs
+audio = { group = "ej.api", name = "audio", version = "1.0.0" }
+edc = { group = "ej.api", name = "edc", version = "1.3.7" }
+bon = { group = "ej.api", name = "bon", version = "1.4.3" }
+drawing = { group = "ej.api", name = "drawing", version = "1.0.5" }
+ecom-wifi = { group = "ej.api", name = "ecom-wifi", version = "2.1.2" }
+event = { group = "ej.api", name = "event", version = "2.1.0" }
+fs = { group = "ej.api", name = "fs", version = "2.0.6" }
+gnss = { group = "ej.api", name = "gnss", version = "2.0.0" }
+microui = { group = "ej.api", name = "microui", version = "3.5.0" }
+net = { group = "ej.api", name = "net", version = "1.1.1" }
+security = { group = "ej.api", name = "security", version = "1.7.0" }
+ssl = { group = "ej.api", name = "ssl", version = "2.2.1" }
+sni = { group = "ej.api", name = "sni", version = "1.4.0" }
+watchdog-timer = { group = "ej.api", name = "watchdog-timer", version = "2.0.0" }
+# Architecture
+architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = "flopi4G25", version = "8.2.0" }
+# Packs
+pack-ui = { group = "com.microej.pack.ui", name = "ui-pack", version = "14.0.1" }
+# Libraries
+frontpanel-framework = { group = "ej.tool.frontpanel", name = "framework", version = "1.1.0" }
+eclasspath-logging = { group = "ej.library.eclasspath", name = "logging", version = "1.2.1" }
+# Test Libraries
+junit = { group = "ej.library.test", name = "junit", version = "1.7.1" }
+junit-platform = { group = "org.junit.platform", name = "junit-platform-launcher", version = "1.8.2" }
+# Testsuites
+audio-testsuite = { group = "com.microej.pack.audio", name = "audio-testsuite", version = "1.0.0" }
+ecom-wifi-testsuite = { group = "com.microej.pack.ecom-wifi", name = "ecom-wifi-2_1-testsuite", version = "0.2.0" }
+event-testsuite = { group = "com.microej.pack.event", name = "event-testsuite", version = "2.1.0" }
+external-resource-testsuite = { group = "com.microej.pack.external-resource", name = "external-resource-testsuite", version = "1.0.2" }
+fs-testsuite = { group = "com.microej.pack.fs", name = "fs-testsuite", version = "3.0.8" }
+fs-openjdk-testsuite = { group = "com.microej.pack.fs", name = "fs-testsuite-openjdk", version = "1.0.1" }
+gnss-init-api = { group = "com.microej.pack.gnss", name = "gnss-init-api", version = "1.0.0" }
+gnss-testsuite = { group = "com.microej.pack.gnss", name = "gnss-testsuite", version = "2.0.0" }
+net-testsuite = { group = "com.microej.pack.net", name = "net-1_1-testsuite", version = "4.1.1" }
+net-wifi-testsuite = { group = "com.microej.pack.net", name = "net-1_1-testsuite-wifi", version = "2.1.1" }
+net-openjdk-testsuite = { group = "com.microej.pack.net", name = "net-1_1-testsuite-openjdk", version = "1.1.1" }
+security-testsuite = { group = "com.microej.pack.net", name = "security-1_7-testsuite", version = "1.7.0" }
+ssl-testsuite = { group = "com.microej.pack.net", name = "net-ssl-2_2-testsuite", version = "5.0.0" }
+ssl-openjdk-testsuite = { group = "com.microej.pack.net", name = "net-ssl-2_2-testsuite-openjdk", version = "2.0.0" }
+ui-testsuite = { group = "com.microej.pack.ui", name = "ui-testsuite", version = "14.2.0" }
+vg-testsuite = { group = "com.microej.pack.vg", name = "vg-testsuite", version = "3.0.0" }
+watchdog-timer-testsuite = { group = "com.microej.pack.watchdog-timer", name = "watchdog-timer-testsuite", version = "3.0.0" }

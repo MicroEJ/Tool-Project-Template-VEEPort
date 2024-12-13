@@ -27,13 +27,13 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("com.microej.pack.audio:audio-testsuite:1.0.0")
-                implementation("ej.api:edc:1.3.7")
-                implementation("ej.api:bon:1.4.3")
-                implementation("ej.api:audio:1.0.0")
+                implementation(libs.audio.testsuite)
+                implementation(libs.edc)
+                implementation(libs.bon)
+                implementation(libs.audio)
             }
 
             targets {

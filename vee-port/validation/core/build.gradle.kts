@@ -27,11 +27,11 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("ej.api:edc:1.2.3")
-                implementation("ej.api:bon:1.2.3")
+                implementation(libs.edc)
+                implementation(libs.bon)
             }
 
             targets {

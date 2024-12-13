@@ -27,15 +27,15 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("com.microej.pack.external-resource:external-resource-testsuite:1.0.2")
-                implementation("ej.api:edc:1.3.3")
-                implementation("ej.api:bon:1.4.0")
-                implementation("ej.api:sni:1.4.0")
-                implementation("ej.api:fs:2.0.6")
-                implementation("ej.library.eclasspath:logging:1.2.1")
+                implementation(libs.external.resource.testsuite)
+                implementation(libs.edc)
+                implementation(libs.bon)
+                implementation(libs.sni)
+                implementation(libs.fs)
+                implementation(libs.eclasspath.logging)
             }
 
             targets {

@@ -27,12 +27,13 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.api:edc:1.3.5")
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("com.microej.pack.net:security-1_7-testsuite:1.7.0")
-                implementation("ej.api:security:1.7.0")
+                implementation(libs.edc)
+                implementation(libs.bon)
+                implementation(libs.security.testsuite)
+                implementation(libs.security)
             }
 
             targets {

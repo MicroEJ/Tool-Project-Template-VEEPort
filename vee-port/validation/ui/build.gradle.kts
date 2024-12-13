@@ -27,13 +27,14 @@ testing {
 
             dependencies {
                 implementation(project())
-                implementation("ej.api:edc:1.3.5")
-                implementation("ej.library.test:junit:1.7.1")
-                implementation("org.junit.platform:junit-platform-launcher:1.8.2")
+                implementation(libs.junit)
+                implementation(libs.junit.platform)
 
-                implementation("ej.api:microui:3.5.0")
-                implementation("ej.api:drawing:1.0.5")
-                implementation("com.microej.pack.ui:ui-testsuite:14.2.0")
+                implementation(libs.edc)
+                implementation(libs.bon)
+                implementation(libs.microui)
+                implementation(libs.drawing)
+                implementation(libs.ui.testsuite)
             }
 
             targets {
