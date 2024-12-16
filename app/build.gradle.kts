@@ -1,5 +1,5 @@
 plugins {
-    id("com.microej.gradle.application") version "0.20.0"
+    id("com.microej.gradle.application") version libs.versions.microej.sdk
 }
 
 microej {

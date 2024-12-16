@@ -1,5 +1,5 @@
 plugins {
-    id("com.microej.gradle.veeport") version "0.20.0"
+    id("com.microej.gradle.veeport") version libs.versions.microej.sdk
 }
 
 microej {
