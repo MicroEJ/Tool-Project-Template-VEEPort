@@ -9,7 +9,10 @@ microej {
 dependencies {
     microejArchitecture(libs.architecture)
 
+    // Comment the packs you don't need
     microejPack(libs.pack.ui.architecture)
+    microejPack(libs.pack.fs)
+    microejPack(libs.pack.net)
 
     microejFrontPanel(project(":vee-port:front-panel"))
 

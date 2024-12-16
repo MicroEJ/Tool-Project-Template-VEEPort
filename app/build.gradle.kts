@@ -14,5 +14,8 @@ microej {
 dependencies {
     implementation(libs.edc)
     implementation(libs.microui)
+    implementation(libs.fs)
+    implementation(libs.net)
+    implementation(libs.ssl)
     microejVee(project(":vee-port"))
 }
