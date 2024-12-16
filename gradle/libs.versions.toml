@@ -1,5 +1,6 @@
 [versions]
 microej-sdk = "0.20.0"
+pack-ui = "14.2.0"
 
 [libraries]
 # APIs
@@ -11,26 +12,31 @@ ecom-wifi = { group = "ej.api", name = "ecom-wifi", version = "2.1.2" }
 event = { group = "ej.api", name = "event", version = "2.1.0" }
 fs = { group = "ej.api", name = "fs", version = "2.0.6" }
 gnss = { group = "ej.api", name = "gnss", version = "2.0.0" }
-microui = { group = "ej.api", name = "microui", version = "3.5.0" }
+microui = { group = "ej.api", name = "microui", version = "3.6.0" }
 net = { group = "ej.api", name = "net", version = "1.1.1" }
 security = { group = "ej.api", name = "security", version = "1.7.0" }
 ssl = { group = "ej.api", name = "ssl", version = "2.2.1" }
 sni = { group = "ej.api", name = "sni", version = "1.4.0" }
 watchdog-timer = { group = "ej.api", name = "watchdog-timer", version = "2.0.0" }
+
 # Architecture
 architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = "flopi4G25", version = "8.2.0" }
+
 # Packs
-pack-ui-architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = "flopi4G25-ui-pack", version = "14.0.1" }
-pack-ui = { group = "com.microej.pack.ui", name = "ui-pack", version = "14.0.1" }
+pack-ui-architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = "flopi4G25-ui-pack", version.ref = "pack-ui" }
+pack-ui = { group = "com.microej.pack.ui", name = "ui-pack", version.ref = "pack-ui" }
 pack-fs = { group = "com.microej.pack", name = "fs", version = "6.0.4" }
 pack-net = { group = "com.microej.pack.net", name = "net-pack", version = "11.0.2" }
+
 # Libraries
 frontpanel-framework = { group = "ej.tool.frontpanel", name = "framework", version = "1.1.0" }
-frontpanel-widget = { group = "ej.tool.frontpanel", name = "widget", version = "4.0.1" }
+frontpanel-widget = { group = "ej.tool.frontpanel", name = "widget", version = "4.0.2" }
 eclasspath-logging = { group = "ej.library.eclasspath", name = "logging", version = "1.2.1" }
+
 # Test Libraries
 junit = { group = "ej.library.test", name = "junit", version = "1.7.1" }
 junit-platform = { group = "org.junit.platform", name = "junit-platform-launcher", version = "1.8.2" }
+
 # Testsuites
 audio-testsuite = { group = "com.microej.pack.audio", name = "audio-testsuite", version = "1.0.0" }
 ecom-wifi-testsuite = { group = "com.microej.pack.ecom-wifi", name = "ecom-wifi-2_1-testsuite", version = "0.2.0" }
@@ -46,6 +52,6 @@ net-openjdk-testsuite = { group = "com.microej.pack.net", name = "net-1_1-testsu
 security-testsuite = { group = "com.microej.pack.net", name = "security-1_7-testsuite", version = "1.7.0" }
 ssl-testsuite = { group = "com.microej.pack.net", name = "net-ssl-2_2-testsuite", version = "5.0.0" }
 ssl-openjdk-testsuite = { group = "com.microej.pack.net", name = "net-ssl-2_2-testsuite-openjdk", version = "2.0.0" }
-ui-testsuite = { group = "com.microej.pack.ui", name = "ui-testsuite", version = "14.2.0" }
-vg-testsuite = { group = "com.microej.pack.vg", name = "vg-testsuite", version = "3.0.0" }
+ui-testsuite = { group = "com.microej.pack.ui", name = "ui-testsuite", version.ref = "pack-ui" }
+vg-testsuite = { group = "com.microej.pack.vg", name = "vg-testsuite", version = "4.0.0" }
 watchdog-timer-testsuite = { group = "com.microej.pack.watchdog-timer", name = "watchdog-timer-testsuite", version = "3.0.0" }
