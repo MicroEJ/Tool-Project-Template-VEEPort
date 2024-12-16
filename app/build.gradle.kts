@@ -13,5 +13,6 @@ microej {
 
 dependencies {
     implementation(libs.edc)
+    implementation(libs.microui)
     microejVee(project(":vee-port"))
 }
