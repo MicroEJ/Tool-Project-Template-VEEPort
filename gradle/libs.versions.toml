@@ -19,6 +19,8 @@ architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = 
 # Packs
 pack-ui-architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = "flopi4G25-ui-pack", version = "14.0.1" }
 pack-ui = { group = "com.microej.pack.ui", name = "ui-pack", version = "14.0.1" }
+pack-fs = { group = "com.microej.pack", name = "fs", version = "6.0.4" }
+pack-net = { group = "com.microej.pack.net", name = "net-pack", version = "11.0.2" }
 # Libraries
 frontpanel-framework = { group = "ej.tool.frontpanel", name = "framework", version = "1.1.0" }
 frontpanel-widget = { group = "ej.tool.frontpanel", name = "widget", version = "4.0.1" }
