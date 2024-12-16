@@ -7,11 +7,6 @@ microej {
 }
 
 dependencies {
+    implementation(libs.frontpanel.widget)
     implementation(libs.frontpanel.framework)
-    implementation(libs.pack.ui) {
-        artifact {
-            name = "frontpanel"
-            extension = "jar"
-        }
-    }
 }

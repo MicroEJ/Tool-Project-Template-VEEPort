@@ -9,8 +9,7 @@ microej {
 dependencies {
     microejArchitecture(libs.architecture)
 
-    //Uncomment the microejPack dependency to set a Pack
-    //microejPack("com.mycompany:mypack:1.0.0")
+    microejPack(libs.pack.ui.architecture)
 
     microejFrontPanel(project(":vee-port:front-panel"))
 

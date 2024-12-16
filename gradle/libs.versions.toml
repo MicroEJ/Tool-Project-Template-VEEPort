@@ -17,9 +17,11 @@ watchdog-timer = { group = "ej.api", name = "watchdog-timer", version = "2.0.0" 
 # Architecture
 architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = "flopi4G25", version = "8.2.0" }
 # Packs
+pack-ui-architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = "flopi4G25-ui-pack", version = "14.0.1" }
 pack-ui = { group = "com.microej.pack.ui", name = "ui-pack", version = "14.0.1" }
 # Libraries
 frontpanel-framework = { group = "ej.tool.frontpanel", name = "framework", version = "1.1.0" }
+frontpanel-widget = { group = "ej.tool.frontpanel", name = "widget", version = "4.0.1" }
 eclasspath-logging = { group = "ej.library.eclasspath", name = "logging", version = "1.2.1" }
 # Test Libraries
 junit = { group = "ej.library.test", name = "junit", version = "1.7.1" }
