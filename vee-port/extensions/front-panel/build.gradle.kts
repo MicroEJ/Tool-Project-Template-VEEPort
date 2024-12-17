@@ -7,6 +7,6 @@ microej {
 }
 
 dependencies {
-    implementation(libs.frontpanel.widget)
     implementation(libs.frontpanel.framework)
+    implementation(libs.frontpanel.ui.widget)
 }
