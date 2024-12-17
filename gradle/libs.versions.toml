@@ -30,7 +30,7 @@ pack-net = { group = "com.microej.pack.net", name = "net-pack", version = "11.0.
 
 # Libraries
 frontpanel-framework = { group = "ej.tool.frontpanel", name = "framework", version = "1.1.0" }
-frontpanel-widget = { group = "ej.tool.frontpanel", name = "widget", version = "4.0.2" }
+frontpanel-ui-widget = { group = "ej.tool.frontpanel", name = "widget", version = "4.0.2" }
 eclasspath-logging = { group = "ej.library.eclasspath", name = "logging", version = "1.2.1" }
 
 # Test Libraries
