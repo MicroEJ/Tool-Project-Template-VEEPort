@@ -8,5 +8,6 @@ microej {
 
 dependencies {
     implementation(libs.frontpanel.framework)
+    // Remove this dependency if you remove the UI pack
     implementation(libs.frontpanel.ui.widget)
 }
