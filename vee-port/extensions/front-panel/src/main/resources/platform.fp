@@ -5,6 +5,7 @@
 	xsi:schemaLocation="https://developer.microej.com .widget.xsd">
 
 	<device name="veeport-template" skin="splashscreen.png">
+		<!-- Remove these 2 lines if you remove the UI pack -->
 		<ej.fp.widget.Display x="0" y="0" width="600" height="330"/>
 		<ej.fp.widget.Pointer x="0" y="0" width="600" height="330" touch="true"/>
 	</device>

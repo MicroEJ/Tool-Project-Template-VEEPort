@@ -9,11 +9,13 @@ microej {
 dependencies {
     microejArchitecture(libs.architecture)
 
-    // Comment the packs you don't need
+    // Only 3 packs are installed by default: UI, FS and NET.
+    // Comment/uncomment the packs depending on your needs.
+    // If the UI pack is removed, do not forget to remove the related
+    // dependencies and configuration in the Front Panel project.
     microejPack(libs.pack.ui.architecture)
     microejPack(libs.pack.fs)
     microejPack(libs.pack.net)
-    // Uncomment the packs you need
     // microejPack(libs.pack.audio)
     // microejPack(libs.pack.bluetooth)
     // microejPack(libs.pack.device)

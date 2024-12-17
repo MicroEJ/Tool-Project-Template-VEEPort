@@ -13,6 +13,7 @@ microej {
 
 dependencies {
     implementation(libs.api.edc)
+    // Remove the API dependency when you remove the related pack
     implementation(libs.api.microui)
     implementation(libs.api.fs)
     implementation(libs.api.net)
