@@ -31,9 +31,16 @@ architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = 
 
 # Packs
 pack-ui-architecture = { group = "com.microej.architecture.CM4.CM4hardfp_GCC48", name = "flopi4G25-ui-pack", version.ref = "pack-ui" }
-pack-ui = { group = "com.microej.pack.ui", name = "ui-pack", version.ref = "pack-ui" }
+pack-audio = { group = "com.microej.pack.audio", name = "audio-pack", version = "1.0.0" }
+pack-bluetooth = { group = "com.microej.pack.bluetooth", name = "bluetooth-pack", version = "2.6.0" }
+pack-device = { group = "com.microej.pack.device", name = "device-pack", version = "1.2.0" }
+pack-ecom-network = { group = "com.microej.pack.ecom-network", name = "ecom-network-pack", version = "1.0.0" }
+pack-ecom-wifi = { group = "com.microej.pack.ecom-wifi", name = "ecom-wifi-pack", version = "1.1.0" }
 pack-fs = { group = "com.microej.pack", name = "fs", version = "6.0.4" }
-pack-net = { group = "com.microej.pack.net", name = "net-pack", version = "11.0.2" }
+pack-net = { group = "com.microej.pack.net", name = "net-pack", version = "11.1.0" }
+pack-ui = { group = "com.microej.pack.ui", name = "ui-pack", version.ref = "pack-ui" }
+pack-vg = { group = "com.microej.pack.vg", name = "vg-pack", version = "1.7.0" }
+pack-watchdog-timer = { group = "com.microej.pack.watchdog-timer", name = "watchdog-timer-pack", version = "2.0.1" }
 
 # Libraries
 frontpanel-framework = { group = "ej.tool.frontpanel", name = "framework", version = "1.1.0" }
