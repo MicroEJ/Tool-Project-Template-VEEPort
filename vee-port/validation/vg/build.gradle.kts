@@ -35,6 +35,7 @@ testing {
                 implementation(libs.microui)
                 implementation(libs.drawing)
                 implementation(libs.vg.testsuite)
+                implementation(libs.microvg)
             }
 
             targets {
