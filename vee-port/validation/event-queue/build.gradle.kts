@@ -30,8 +30,8 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.event.testsuite)
-                implementation(libs.event)
+                implementation(libs.testsuite.event)
+                implementation(libs.api.event)
             }
 
             targets {

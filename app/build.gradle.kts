@@ -12,10 +12,10 @@ microej {
 }
 
 dependencies {
-    implementation(libs.edc)
-    implementation(libs.microui)
-    implementation(libs.fs)
-    implementation(libs.net)
-    implementation(libs.ssl)
+    implementation(libs.api.edc)
+    implementation(libs.api.microui)
+    implementation(libs.api.fs)
+    implementation(libs.api.net)
+    implementation(libs.api.ssl)
     microejVee(project(":vee-port"))
 }

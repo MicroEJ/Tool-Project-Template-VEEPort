@@ -30,9 +30,9 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.net.testsuite)
-                implementation(libs.net.openjdk.testsuite)
-                implementation(libs.net)
+                implementation(libs.testsuite.net)
+                implementation(libs.testsuite.net.openjdk)
+                implementation(libs.api.net)
 
                 // Add the following dependency if running the testsuite over Wi-Fi.
                 // implementation(libs.net.wifi.testsuite)

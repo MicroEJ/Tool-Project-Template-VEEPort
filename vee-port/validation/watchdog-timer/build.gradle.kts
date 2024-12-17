@@ -30,10 +30,10 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.edc)
-                implementation(libs.bon)
-                implementation(libs.watchdog.timer)
-                implementation(libs.watchdog.timer.testsuite)
+                implementation(libs.api.edc)
+                implementation(libs.api.bon)
+                implementation(libs.api.watchdog.timer)
+                implementation(libs.testsuite.watchdog.timer)
             }
 
             targets {

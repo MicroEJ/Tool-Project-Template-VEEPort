@@ -30,11 +30,11 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.fs.testsuite)
-                implementation(libs.fs.openjdk.testsuite)
-                implementation(libs.edc)
-                implementation(libs.bon)
-                implementation(libs.fs)
+                implementation(libs.testsuite.fs)
+                implementation(libs.testsuite.fs.openjdk)
+                implementation(libs.api.edc)
+                implementation(libs.api.bon)
+                implementation(libs.api.fs)
             }
 
             targets {

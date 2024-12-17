@@ -30,9 +30,9 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.ecom.wifi.testsuite)
-                implementation(libs.ecom.wifi)
-                implementation(libs.net)
+                implementation(libs.testsuite.ecom.wifi)
+                implementation(libs.api.ecom.wifi)
+                implementation(libs.api.net)
             }
 
             targets {
