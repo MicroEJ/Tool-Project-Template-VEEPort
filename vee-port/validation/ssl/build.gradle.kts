@@ -30,12 +30,12 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.edc)
-                implementation(libs.bon)
-                implementation(libs.ssl)
-                implementation(libs.net)
-                implementation(libs.ssl.testsuite)
-                implementation(libs.ssl.openjdk.testsuite)
+                implementation(libs.api.edc)
+                implementation(libs.api.bon)
+                implementation(libs.api.ssl)
+                implementation(libs.api.net)
+                implementation(libs.testsuite.ssl)
+                implementation(libs.testsuite.ssl.openjdk)
                 // Add the following dependency if running the testsuite over Wi-Fi.
                 // implementation(libs.net.wifi.testsuite)
             }

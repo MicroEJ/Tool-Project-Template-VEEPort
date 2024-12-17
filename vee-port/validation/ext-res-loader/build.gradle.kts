@@ -30,11 +30,11 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.external.resource.testsuite)
-                implementation(libs.edc)
-                implementation(libs.bon)
-                implementation(libs.sni)
-                implementation(libs.fs)
+                implementation(libs.testsuite.external.resource)
+                implementation(libs.api.edc)
+                implementation(libs.api.bon)
+                implementation(libs.api.sni)
+                implementation(libs.api.fs)
                 implementation(libs.eclasspath.logging)
             }
 

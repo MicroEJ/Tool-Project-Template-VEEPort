@@ -30,10 +30,10 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.audio.testsuite)
-                implementation(libs.edc)
-                implementation(libs.bon)
-                implementation(libs.audio)
+                implementation(libs.testsuite.audio)
+                implementation(libs.api.edc)
+                implementation(libs.api.bon)
+                implementation(libs.api.audio)
             }
 
             targets {

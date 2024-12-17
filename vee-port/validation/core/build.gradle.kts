@@ -30,8 +30,8 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.edc)
-                implementation(libs.bon)
+                implementation(libs.api.edc)
+                implementation(libs.api.bon)
             }
 
             targets {

@@ -30,12 +30,12 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.edc)
-                implementation(libs.bon)
-                implementation(libs.microui)
-                implementation(libs.drawing)
-                implementation(libs.vg.testsuite)
-                implementation(libs.microvg)
+                implementation(libs.api.edc)
+                implementation(libs.api.bon)
+                implementation(libs.api.microui)
+                implementation(libs.api.drawing)
+                implementation(libs.testsuite.vg)
+                implementation(libs.api.microvg)
             }
 
             targets {

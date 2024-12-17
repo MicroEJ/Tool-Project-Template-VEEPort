@@ -30,10 +30,10 @@ testing {
                 implementation(libs.junit)
                 implementation(libs.junit.platform)
 
-                implementation(libs.gnss)
-                implementation(libs.edc)
-                implementation(libs.bon)
-                implementation(libs.gnss.testsuite)
+                implementation(libs.api.gnss)
+                implementation(libs.api.edc)
+                implementation(libs.api.bon)
+                implementation(libs.testsuite.gnss)
                 implementation(libs.gnss.init.api)
                 implementation(libs.eclasspath.logging)
             }
