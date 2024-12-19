@@ -1,5 +1,5 @@
 [versions]
-microej-sdk = "0.20.0"
+microej-sdk = "1.0.0"
 pack-ui = "14.2.0"
 
 [libraries]
