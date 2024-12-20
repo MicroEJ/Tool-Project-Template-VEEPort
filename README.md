@@ -72,6 +72,75 @@ The <VEE_PORT> is derived into:
 - SDK Dist. `<MICROEJ_SDK_VERSION>` or higher, available [here](https://developer.microej.com/microej-sdk-software-development-kit/)
 - <BOARD_NAME> board
 
+## <VEE_PORT> Setup
+
+### <VEE_PORT> Import
+
+[Open the VEE Port project in your favorite IDE](https://docs.microej.com/en/latest/SDK6UserGuide/importProject.html)
+by selecting the root folder of the cloned repository.
+
+The project contains the following subprojects:
+
+- `vee-port`: Contains the <VEE_PORT> configuration description.
+  Some modules are described in a specific sub-folder / with some optional configuration files
+  (`.properties` and / or `.xml`).
+
+- `bsp`: Contains a ready-to-use BSP software project for the <BOARD_NAME> board, including a <CIDE> project,
+  an implementation of MicroEJ Core Engine (and extensions) port on <RTOS> and the <BOARD_NAME> board support package.
+
+- `vee-port/extensions/front-panel`: Contains the board description and images for the Simulator.
+  This project is updated once the <VEE_PORT> is built.
+
+- `vee-port/extensions/image-generator`: Contains the Image Generator extension.
+  This project is updated once the <VEE_PORT> is built.
+
+- `vee-port/mock`: Contains a Mock.
+  This project is updated once the <VEE_PORT> is built.
+
+- `app`: Contains a sample application which uses the <VEE_PORT>.
+
+By default, the <VEE_PORT> is configured as a Mono-Sandbox Evaluation
+<VEE_PORT> (Please refer to the [RELEASE NOTES](./RELEASE_NOTES.md) limitations section for more details).
+
+### Run an Application on the Simulator
+
+To run an Application on the Simulator, the BSP or C/C++ Toolchain are not required.
+
+- Run the `app` sample Application [on the Simulator](https://docs.microej.com/en/latest/SDK6UserGuide/runOnSimulator.html).
+  This automatically builds the <VEE_PORT> and uses it.
+
+The build may take several minutes.
+The first time, the <VEE_PORT> build requires to download modules that are available on the MicroEJ Central Repository.
+
+Please wait for the Application start, or for the final message:
+
+```sh
+BUILD SUCCESSFUL
+```
+
+An evaluation license is needed for building an Application. Please refer to
+https://docs.microej.com/en/latest/SDK6UserGuide/licenses.html#evaluation-licenses
+for information on how to acquire and activate a license.
+
+### Run an Application on the Device
+
+To build and run the Application on the Device, the BSP are C/C++ Toolchain are required.
+
+Before continuing further, please refer to the [BSP Setup](#bsp-setup) section below to setup the toolchain.  
+- Run the `app` sample Application [on Device](https://docs.microej.com/en/latest/SDK6UserGuide/runOnDevice.html).
+  This automatically builds the <VEE_PORT> and uses it.
+
+The build may take several minutes.  
+The first time, the <VEE_PORT> build requires to download modules that are available on the MicroEJ Central Repository.
+
+Please wait for the Application start, or for the final message:
+
+```sh
+BUILD SUCCESSFUL
+```
+This step will build the BSP. If you would like to rebuild the BSP manually, please refer to the [BSP Compilation](#bsp-compilation) section below.
+
+
 ## BSP Setup
 
 Install the <BOARD_MANUFACTURER> toolchain as described [here](<board_toolchain_setup_documentation_url>).
@@ -206,57 +275,6 @@ for more details.
 #### Firmware Profiling With SEGGER SystemView
 
 <Firmware profiling analysis with SEGGER SystemView can be done using ...>
-
-## <VEE_PORT> Setup
-
-### <VEE_PORT> Import
-
-[Open the VEE Port project in your favorite IDE](https://docs.microej.com/en/latest/SDK6UserGuide/importProject.html) 
-by selecting the root folder of the cloned repository.
-
-The project contains the following subprojects:
-
-- `vee-port`: Contains the <VEE_PORT> configuration description. 
-  Some modules are described in a specific sub-folder / with some optional configuration files
-  (`.properties` and / or `.xml`).
-
-- `bsp`: Contains a ready-to-use BSP software project for the <BOARD_NAME> board, including a <CIDE> project, 
-  an implementation of MicroEJ Core Engine (and extensions) port on <RTOS> and the <BOARD_NAME> board support package.
-
-- `vee-port/extensions/front-panel`: Contains the board description and images for the Simulator. 
-  This project is updated once the <VEE_PORT> is built.
-
-- `vee-port/extensions/image-generator`: Contains the Image Generator extension.
-  This project is updated once the <VEE_PORT> is built.
-
-- `vee-port/mock`: Contains a Mock.
-  This project is updated once the <VEE_PORT> is built.
-
-- `app`: Contains a sample application which uses the <VEE_PORT>.
-
-By default, the <VEE_PORT> is configured as a Mono-Sandbox Evaluation
-<VEE_PORT> (Please refer to the [RELEASE NOTES](./RELEASE_NOTES.md) limitations section for more details).
-
-### <VEE_PORT> Build
-
-To build the <VEE_PORT>:
-
-- Run the `app` sample Application [on the Simulator](https://docs.microej.com/en/latest/SDK6UserGuide/runOnSimulator.html) 
-  or [on Device](https://docs.microej.com/en/latest/SDK6UserGuide/runOnDevice.html). 
-  This automatically builds the <VEE_PORT> and uses it.
-
-The build may take several minutes.
-The first time, the <VEE_PORT> build requires to download modules that are available on the MicroEJ Central Repository.
-
-Please wait for the Application start, or for the final message:
-
-```sh
-BUILD SUCCESSFUL
-```
-
-An evaluation license is needed for building an Application. Please refer to
-https://docs.microej.com/en/latest/SDK6UserGuide/licenses.html#evaluation-licenses
-for information on how to acquire and activate a license.
 
 ## Testsuite Configuration
 
