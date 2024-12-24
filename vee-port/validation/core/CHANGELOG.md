@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [3.4.0] - 2024-12-13
+
+### Added
+
+- Add check for ``LLBSP_IMPL_atomic_exchange``.
+- Add check for floating-point NaN bit pattern.
+- Add check for ``LLMJVM_IMPL_getTimeNanos``
+- Add check that application time modification does not impact monotonic time.
+
+### Changed
+
+- Remove invalid test that was comparing monotonic time and application time.
+
 ## [3.3.0] - 2024-10-03
 
 ### Changed

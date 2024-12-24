@@ -29,7 +29,7 @@ Tests can be launched:
 
 ```c
 #include "sni.h"
-
+   
 jfloat Java_com_microej_core_tests_MicroejCoreValidation_testFloat(jfloat a, jfloat b){
    return a * b;
 }
@@ -53,7 +53,7 @@ jint Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments01(jin
    }
    else {
        return 0;
-   }		
+   }
 }
 
 jlong Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments02(jlong l1, jlong l2, jlong l3, jlong l4, jlong l5, jlong l6, jlong l7, jlong l8, jlong l9, jlong l10){
@@ -71,7 +71,7 @@ jlong Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments02(jl
    }
    else {
        return 0ll;
-   }		
+   }
 }
 
 jlong Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments03(jint i1, jlong l2, jint i3, jlong l4, jint i5, jlong l6, jint i7, jlong l8, jint i9, jlong l10){
@@ -89,7 +89,7 @@ jlong Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments03(ji
    }
    else {
        return 0ll;
-   }		
+   }
 }
 
 jfloat Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments04(jfloat f1, jfloat f2, jfloat f3, jfloat f4, jfloat f5, jfloat f6, jfloat f7, jfloat f8, jfloat f9, jfloat f10){
@@ -107,7 +107,7 @@ jfloat Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments04(j
    }
    else {
        return 0.0f;
-   }		
+   }
 }
 
 jdouble Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments05(jdouble d1, jdouble d2, jdouble d3, jdouble d4, jdouble d5, jdouble d6, jdouble d7, jdouble d8, jdouble d9, jdouble d10){
@@ -125,7 +125,7 @@ jdouble Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments05(
    }
    else {
        return 0.0;
-   }		
+   }
 }
 
 jdouble Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments06(jfloat f1, jdouble d2, jfloat f3, jdouble d4, jfloat f5, jdouble d6, jfloat f7, jdouble d8, jfloat f9, jdouble d10){
@@ -143,7 +143,22 @@ jdouble Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments06(
    }
    else {
        return 0.0;
-   }		
+   }
+}   
+
+jint Java_com_microej_core_tests_MicroejCoreValidation_sniSuspend(jlong timeout)
+{
+   return SNI_suspendCurrentJavaThread(timeout);
+}
+
+jint Java_com_microej_core_tests_MicroejCoreValidation_sniResume(jint threadID)
+{
+   return SNI_resumeJavaThread(threadID);
+}
+
+jint Java_com_microej_core_tests_MicroejCoreValidation_sniGetCurrentThreadID()
+{
+   return SNI_getCurrentJavaThreadID();
 }
 ```
 
@@ -157,9 +172,9 @@ jdouble Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments06(
 ```
 MicroEJ START
 *****************************************************************************************************
-*                                  MicroEJ Core Validation - 3.2.0                                  *
+*                                  MicroEJ Core Validation - 3.4.0                                  *
 *****************************************************************************************************
-* Copyright 2013-2023 MicroEJ Corp. All rights reserved.                                            *
+* Copyright 2013-2024 MicroEJ Corp. All rights reserved.                                            *
 * Use of this source code is governed by a BSD-style license that can be found with this software.  *
 *****************************************************************************************************
 
@@ -177,15 +192,16 @@ Property 'com.microej.core.tests.clock.seconds' is not set (default to '10' seco
 9
 10
 OK: testVisibleClock
--> Check schedule request and wakeup (LLMJVM_IMPL_scheduleRequest and LLMJVM_IMPL_wakeupVM validation)...
+-> Check schedule request and wakeup (LLMJVM_IMPL_scheduleRequest, LLMJVM_IMPL_wakeupVM, LLMJVM_IMPL_getCurrentTime, and LLMJVM_IMPL_getTimeNanos validation)...
 Property 'com.microej.core.tests.max.allowed.clock.tick.duration.milliseconds' is not set (default to '20' millisecondss)
 Waiting for 5s...
 ...done
 OK: testTime
--> Check monotonic time (LLMJVM_IMPL_getCurrentTime, LLMJVM_IMPL_setApplicationTime validation)...
-Waiting for 5s...
+-> Check application time modification (LLMJVM_IMPL_getCurrentTime and LLMJVM_IMPL_setApplicationTime validation)...
+Property 'com.microej.core.tests.can.set.system.time' is not set (default to 'true')
+Set application time and wait for 5s...
 ...done
-OK: testMonotonicTime
+OK: testSetApplicationTime
 -> Check Java round robin (LLMJVM_IMPL_scheduleRequest validation)...
 For a best result, please disable all the C native tasks except the MicroEJ task.
 Task 3 is waiting for start...
@@ -216,6 +232,7 @@ OK: testFPU
 -> Check floating-point arithmetic with min values...
 -> Check floating-point division by 0.0...
 -> Check floating-point Math functions...
+-> Check floating-point NaN bit pattern...
 -> Check integer arithmetic...
 OK: testFloatingPointArithmetic
 -> Check floating-point parser...
@@ -239,7 +256,9 @@ Estimated LLMJVM_IMPL_scheduleRequest clock tick is 1 ms.
 OK: testScheduleRequestClockTick
 -> Check SNI native calling convention (ABI)...
 OK: testSniAbi
-PASSED: 15
+-> Check SNI atomic exchange implementation (LLBSP_IMPL_atomic_exchange)...
+OK: testSniAtomicExchange
+PASSED: 16
 MicroEJ END (exit code = 0)
 ```
 
