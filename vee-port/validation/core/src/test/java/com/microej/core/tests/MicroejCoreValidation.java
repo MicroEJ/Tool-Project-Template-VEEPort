@@ -1,3 +1,9 @@
+/*
+ * Java
+ *
+ * Copyright 2013-2024 MicroEJ Corp. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be found with this software.
+ */
 package com.microej.core.tests;
 
 import static org.junit.Assert.assertEquals;
@@ -29,9 +35,9 @@ import ej.bon.Util;
  */
 public class MicroejCoreValidation {
 
-	private static final String VERSION = "3.3.0";
+	private static final String VERSION = "3.4.0";
 
-	private static final String PROPERTY_SUFFIX = "com.microej.core.tests.";
+	private static final String PROPERTY_PREFIX = "com.microej.core.tests.";
 	private static final String OPTION_CLOCK_NB_SECONDS = "clock.seconds";
 	private static final String OPTION_MONOTONIC_CHECK_NB_SECONDS = "monotonic.time.check.seconds";
 	/**
@@ -99,7 +105,7 @@ public class MicroejCoreValidation {
 	}
 
 	private static int getOptionAsInt(String optionName, int defaultValue, String unit) {
-		String propertyName = PROPERTY_SUFFIX + optionName;
+		String propertyName = PROPERTY_PREFIX + optionName;
 		String valueStr = System.getProperty(propertyName);
 		int value;
 		if (valueStr == null) {
@@ -121,7 +127,7 @@ public class MicroejCoreValidation {
 	}
 
 	private static boolean getOptionAsBool(final String optionName, boolean defaultValue) {
-		final String propertyName = PROPERTY_SUFFIX + optionName;
+		final String propertyName = PROPERTY_PREFIX + optionName;
 		String valueStr = System.getProperty(propertyName);
 		boolean value;
 
@@ -271,8 +277,6 @@ public class MicroejCoreValidation {
 	@Test
 	public void testVisibleClock() {
 		System.out.println("-> Check visible clock (LLMJVM_IMPL_getCurrentTime validation)...");
-		final long precisionLimit = getOptionAsInt(OPTION_MAX_ALLOWED_CLOCK_TICK_DURATION_MS,
-				DEFAULT_MAX_ALLOWED_CLOCK_TICK_DURATION_MS, "milliseconds");
 		int defaultNbSeconds = 10;
 		int nbSeconds = getOptionAsInt(OPTION_CLOCK_NB_SECONDS, defaultNbSeconds, "second");
 
@@ -293,84 +297,91 @@ public class MicroejCoreValidation {
 				break; // end of test
 			}
 		}
-
-		// ensure both API returns same value
-		long timeEnd1 = System.currentTimeMillis();
-		long timeEnd2 = Util.platformTimeMillis();
-		long delta = timeEnd2 - timeEnd1;
-		assertTrue("Util.platformTimeMillis() != System.currentTimeMillis()", delta <= precisionLimit);
-
-		// ensure nano time is valid
-		delta = (Util.platformTimeNanos() / 1000000) - Util.platformTimeMillis();
-		assertTrue("Util.platformTimeNanos()/1000000 != Util.platformTimeMillis()", delta <= precisionLimit);
 	}
 
 	/**
-	 * Tests <code>LLMJVM_IMPL_scheduleRequest</code> and <code>LLMJVM_IMPL_wakeupVM</code> implementations.
+	 * Tests <code>LLMJVM_IMPL_scheduleRequest</code>, <code>LLMJVM_IMPL_wakeupVM</code>,
+	 * <code>LLMJVM_IMPL_getCurrentTime</code>, and <code>LLMJVM_IMPL_getTimeNanos</code> implementations.
 	 */
 	@Test
 	public void testTime() {
 		System.out.println(
-				"-> Check schedule request and wakeup (LLMJVM_IMPL_scheduleRequest and LLMJVM_IMPL_wakeupVM validation)...");
+				"-> Check schedule request and wakeup (LLMJVM_IMPL_scheduleRequest, LLMJVM_IMPL_wakeupVM, LLMJVM_IMPL_getCurrentTime, and LLMJVM_IMPL_getTimeNanos validation)...");
 		final long precisionLimit = getOptionAsInt(OPTION_MAX_ALLOWED_CLOCK_TICK_DURATION_MS,
 				DEFAULT_MAX_ALLOWED_CLOCK_TICK_DURATION_MS, "milliseconds");
+		final long precisionLimitNano = precisionLimit * 1000000l;
 		long delay = 5 * 1000;
+		long delayNano = delay * 1000000l;
 		System.out.println("Waiting for " + delay / 1000 + "s...");
 		long timeBefore = Util.platformTimeMillis();
+		long nanoTimeBefore = Util.platformTimeNanos();
 		try {
 			Thread.sleep(delay);
 		} catch (InterruptedException e) {
 			throw new Error();
 		}
 		long timeAfter = Util.platformTimeMillis();
+		long nanoTimeAfter = Util.platformTimeNanos();
 		System.out.println("...done");
+
 		long realDelay = timeAfter - timeBefore;
-		assertTrue("realDelay>=delay", realDelay >= delay);
+		assertTrue("ms realDelay>=delay", realDelay >= delay);
 		long delta = realDelay - delay;
-		assertTrue("delta(=" + delta + ")<=" + precisionLimit, delta <= precisionLimit);
+		assertTrue("ms delta(=" + delta + ")<=" + precisionLimit, delta <= precisionLimit);
+
+		long realDelayNano = nanoTimeAfter - nanoTimeBefore;
+		assertTrue("ns realDelay>=delay", realDelayNano >= delayNano);
+		long deltaNano = realDelayNano - delayNano;
+		assertTrue("ns delta(=" + deltaNano + ")<=" + precisionLimitNano, deltaNano <= precisionLimitNano);
 	}
 
 	/**
 	 * Tests the <code>LLMJVM_IMPL_setApplicationTime</code> implementation.
 	 */
 	@Test
-	public void testMonotonicTime() {
+	public void testSetApplicationTime() {
 		System.out.println(
-				"-> Check monotonic time (LLMJVM_IMPL_getCurrentTime, LLMJVM_IMPL_setApplicationTime validation)...");
+				"-> Check application time modification (LLMJVM_IMPL_getCurrentTime and LLMJVM_IMPL_setApplicationTime validation)...");
 		final long delay = 5 * 1000;
-		final long elapsedTime = 100;
+		final long toleranceTime = 100;
 		final long timeOffset = 50_000;
 
 		final boolean canSetSystemTime = getOptionAsBool(OPTION_CAN_SET_SYSTEM_TIME, DEFAULT_CAN_SET_SYSTEM_TIME);
 
 		if (canSetSystemTime) {
-			System.out.println("Setting application time...");
-			final long applicationTimeBefore = System.currentTimeMillis();
+			System.out.println("Set application time and wait for " + delay / 1000 + "s...");
 
+			final long applicationTimeBefore = System.currentTimeMillis();
+			final long monotonicTimeBefore = Util.platformTimeMillis();
 			Util.setCurrentTimeMillis(applicationTimeBefore + timeOffset);
 
+			try {
+				Thread.sleep(delay);
+			} catch (InterruptedException e) {
+				throw new Error();
+			}
+
 			final long applicationTimeAfter = System.currentTimeMillis();
+			final long montonicTimeAfter = Util.platformTimeMillis();
+			System.out.println("...done");
 
+			long expectedApplicationTimeAfter = applicationTimeBefore + timeOffset + delay;
+			long expectedMonotonicTimeAfter = monotonicTimeBefore + delay;
+
+			// Test that modifying the application time is correctly done
 			final String assertionMessage = "Application time not correctly set. On some platforms, the MicroEJ Core Engine is not allowed to modify the time of the system (e.g., on Linux if the process does not have the right permissions). In such a case, you can ignore this test by setting the property '"
-					+ PROPERTY_SUFFIX + OPTION_CAN_SET_SYSTEM_TIME + "' to 'false'.";
-			assertTrue(assertionMessage, applicationTimeAfter >= applicationTimeBefore + timeOffset
-					&& applicationTimeAfter <= applicationTimeBefore + timeOffset + elapsedTime);
+					+ PROPERTY_PREFIX + OPTION_CAN_SET_SYSTEM_TIME + "' to 'false'.";
+			assertTrue(assertionMessage, applicationTimeAfter >= expectedApplicationTimeAfter
+					&& applicationTimeAfter <= expectedApplicationTimeAfter + toleranceTime);
+
+			// Test that modifying the application time does not impact the monotonic time.
+			assertTrue("monotonic time not modified", montonicTimeAfter >= expectedMonotonicTimeAfter
+					&& montonicTimeAfter <= expectedMonotonicTimeAfter + toleranceTime);
+
+		} else {
+			System.out.println("Setting application time not tested because the property "
+					+ (PROPERTY_PREFIX + OPTION_CAN_SET_SYSTEM_TIME) + " is set to 'false'");
 		}
-
-		System.out.println("Waiting for " + delay / 1000 + "s...");
-		final long monotonicTimeBefore = Util.platformTimeMillis();
-
-		try {
-			Thread.sleep(delay);
-		} catch (InterruptedException e) {
-			throw new Error();
-		}
-
-		final long montonicTimeAfter = Util.platformTimeMillis();
-		System.out.println("...done");
-
-		assertTrue("monotonic time not set", montonicTimeAfter >= monotonicTimeBefore + delay
-				&& montonicTimeAfter <= monotonicTimeBefore + delay + elapsedTime);
 	}
 
 	/**
@@ -674,6 +685,11 @@ public class MicroejCoreValidation {
 		allOk &= checkTrue("test 'asin(NaN)' returns NaN", Double.isNaN(Math.asin(doubleNaN)));
 		allOk &= checkTrue("test 'atan(NaN)' returns NaN", Double.isNaN(Math.atan(doubleNaN)));
 
+		System.out.println("-> Check floating-point NaN bit pattern...");
+		allOk &= checkEquals("test float NaN bit pattern", 0x7FC00000, Float.floatToRawIntBits(floatZero / floatZero));
+		allOk &= checkEquals("test double NaN bit pattern", 0x7ff8000000000000L,
+				Double.doubleToRawLongBits(doubleZero / doubleZero));
+
 		System.out.println("-> Check integer arithmetic...");
 		allOk &= checkEquals("test 'INT_MIN / -1' returns INT_MIN", Integer.MIN_VALUE, intMin / intNegativeOne);
 		allOk &= checkEquals("test 'INT_MIN % -1' returns INT_MIN", 0, intMin % intNegativeOne);
@@ -868,7 +884,7 @@ public class MicroejCoreValidation {
 	}
 
 	/**
-	 * Checks {@code LLMJVM_IMPL_getCurrentTime()} and {@code LLMJVM_IMPL_getTimeNanos()} clock tick duration.
+	 * Checks <code>LLMJVM_IMPL_getCurrentTime()</code> and <code>LLMJVM_IMPL_getTimeNanos()</code> clock tick duration.
 	 */
 	@Test
 	public void testSystemCurrentTimeClockTick() {
@@ -907,14 +923,14 @@ public class MicroejCoreValidation {
 			long precisionLimitNs = precisionLimitMs * 1000000l;
 			System.out.println("Estimated LLMJVM_IMPL_getTimeNanos clock tick is " + precision + " ns.");
 			assertTrue("LLMJVM_IMPL_getTimeNanos timer precision (" + precision
-					+ " ns) is lower than the expected limit (" + precisionLimitMs + " ns)",
+					+ " ns) is lower than the expected limit (" + precisionLimitNs + " ns)",
 					precision <= precisionLimitNs);
 		}
 
 	}
 
 	/**
-	 * Checks {@code LLMJVM_IMPL_scheduleRequest()} clock tick duration.
+	 * Checks <code>LLMJVM_IMPL_scheduleRequest()</code> clock tick duration.
 	 */
 	@Test
 	public void testScheduleRequestClockTick() {
@@ -973,6 +989,68 @@ public class MicroejCoreValidation {
 		allOk &= checkTrue("test float/double SNI arguments", res06 == 4.0d);
 
 		assertTrue(allOk);
+	}
+
+	/**
+	 * Checks SNI atomic exchange.
+	 */
+	@Test
+	public void testSniAtomicExchange() {
+		System.out.println("-> Check SNI atomic exchange implementation (LLBSP_IMPL_atomic_exchange)...");
+
+		// Suspend a Thread with SNI and resume it from another thread.
+		// If the thread is not suspended or the sleep duration is not correct,
+		// then there is an error in the implementation of LLBSP_IMPL_atomic_exchange().
+
+		final long RESUME_DELAY = 2000;
+		final long SUSPEND_TIMEOUT = 5000;
+		final long DELAY_TOLERANCE = 500;
+
+		long t0 = ej.bon.Util.platformTimeMillis();
+
+		int threadId = sniGetCurrentThreadID();
+		asyncResumeThread(threadId, RESUME_DELAY);
+
+		sniSuspend(SUSPEND_TIMEOUT);
+
+		long t1 = ej.bon.Util.platformTimeMillis();
+
+		long suspendDuration = t1 - t0;
+
+		// Check that the thread has been suspended
+		assertTrue(
+				"SNI suspend duration (" + suspendDuration
+						+ ") is lower than expected: issue in LLBSP_IMPL_atomic_exchange",
+				suspendDuration > (RESUME_DELAY - DELAY_TOLERANCE));
+		// Check that the thread has been resumed by the other thread and not by the timeout
+		assertTrue(
+				"SNI suspend duration (" + suspendDuration
+						+ ") is higher than expected: issue in LLBSP_IMPL_atomic_exchange",
+				suspendDuration < (RESUME_DELAY + DELAY_TOLERANCE));
+	}
+
+	/**
+	 * Resumes the given thread after the given delay.
+	 * <p>
+	 * Starts a thread that calls SNI_resumeJavaThread() after a the delay.
+	 */
+	private static void asyncResumeThread(final int threadId, final long delayMs) {
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(delayMs);
+				} catch (InterruptedException e) {
+					// Unexpected error
+					e.printStackTrace();
+					return;
+				}
+				sniResume(threadId);
+			}
+		};
+
+		new Thread(runnable).start();
+
 	}
 
 	/**
@@ -1072,5 +1150,11 @@ public class MicroejCoreValidation {
 
 	private static native double testNativeArguments06(float f1, double d2, float f3, double d4, float f5, double d6,
 			float f7, double d8, float f9, double d10);
+
+	private static native int sniSuspend(long timeout);
+
+	private static native int sniResume(int threadID);
+
+	private static native int sniGetCurrentThreadID();
 
 }
