@@ -98,7 +98,7 @@ The project contains the following subprojects:
 - `app`: Contains a sample application which uses the <VEE_PORT>.
 
 By default, the <VEE_PORT> is configured as a Mono-Sandbox Evaluation
-<VEE_PORT> (Please refer to the [RELEASE NOTES](./RELEASE_NOTES.md) limitations section for more details).
+<VEE_PORT> (Refer to the [RELEASE NOTES](./RELEASE_NOTES.md) limitations section for more details).
 
 ## Run an Application on the Simulator
 
@@ -110,13 +110,13 @@ To run an Application on the Simulator, the BSP or C/C++ Toolchain are not requi
 The build may take several minutes.
 The first time, the <VEE_PORT> build requires to download modules that are available on the MicroEJ Central Repository.
 
-Please wait for the Application start, or for the final message:
+Wait for the Application start, or for the final message:
 
 ```sh
 BUILD SUCCESSFUL
 ```
 
-An evaluation license is needed for building an Application. Please refer to
+An evaluation license is needed for building an Application. Refer to
 https://docs.microej.com/en/latest/SDK6UserGuide/licenses.html#evaluation-licenses
 for information on how to acquire and activate a license.
 
@@ -133,7 +133,7 @@ Install the <BOARD_MANUFACTURER> toolchain as described [here](<board_toolchain_
   - C/C++ toolchain version: <C/C++ toolchain version>
   - C/C++ toolchain [download link](<windows_toolchain_download_url>)
 
-Please refer to the <BOARD_MANUFACTURER> documentation available [here](<manufacturer_windows_toolchain_setup_documentation_url>)
+Refer to the <BOARD_MANUFACTURER> documentation available [here](<manufacturer_windows_toolchain_setup_documentation_url>)
 for more details.
 
 - Linux Toolchain
@@ -141,7 +141,7 @@ for more details.
   - C/C++ toolchain version: <C/C++ toolchain version>
   - C/C++ toolchain [download link](linux_toolchain_download_url>)
 
-Please refer to the <BOARD_MANUFACTURER> documentation available [here](<manufacturer_linux_toolchain_setup_documentation_url>)
+Refer to the <BOARD_MANUFACTURER> documentation available [here](<manufacturer_linux_toolchain_setup_documentation_url>)
 for more details.
 
 ### BSP Setup
@@ -156,7 +156,7 @@ is imported if it exists. Create and configure these files to
 customize the environment locally. Template files are provided as
 example, see `set_local_env.bat.tpl` and `set_local_env.sh.tpl`.
 
-_Note:_ Please refer to the following public documentation link to get more details on this part:
+_Note:_ Refer to the following public documentation link to get more details on this part:
 - [VEE Port BSP Connection specification](https://docs.microej.com/en/latest/VEEPortingGuide/platformCreation.html#bsp-connection)
 - [VEE Port Creation Training](https://docs.microej.com/en/latest/Trainings/tutorialCreatePlatformBuildAndRunScripts.html)
 
@@ -169,7 +169,7 @@ The build may take several minutes.
 The first time, the <VEE_PORT> build requires to download modules that are available on the MicroEJ Central Repository.  
 The <VEE_PORT> will also build the `bsp` project and link it with MicroEJ VEE and the Application to produce an executable.
 
-Please wait for the Application start, or for the final message:
+Wait for the Application start, or for the final message:
 
 ```sh
 BUILD SUCCESSFUL
@@ -198,7 +198,7 @@ $ cd "bsp/vee/scripts"
 $ build.sh 
 ```
 
-The BSP project build is launched. Please wait for the final message:
+The BSP project build is launched. Wait for the final message:
 
 ```sh
 To flash all build output, run 'make flash' or:
@@ -206,7 +206,7 @@ To flash all build output, run 'make flash' or:
 
 ## Board Setup
 
-Please refer to the <BOARD_MANUFACTURER> documentation available [here](<board_setup_documentation_url>)
+Refer to the <BOARD_MANUFACTURER> documentation available [here](<board_setup_documentation_url>)
 for more details.
 
 <Provide here image(s) of the board showing important things for the board setup (power supply connector, programming connector, logs output connector, jumpers configuration, etc.)>
@@ -215,7 +215,7 @@ for more details.
 
 <The board can be powered by ...>
 
-Please refer to the <BOARD_MANUFACTURER> documentation available [here](<board_power_supply_documentation_url>)
+Refer to the <BOARD_MANUFACTURER> documentation available [here](<board_power_supply_documentation_url>)
 for more details.
 
 ### Programming
@@ -241,7 +241,7 @@ $ cd "bsp/vee/scripts"
 $ run.sh
 ```
 
-The firmware is launched. Please wait for the final message:
+The firmware is launched. Wait for the final message:
 
 ```sh
 <Board flash final message>
@@ -265,7 +265,7 @@ for more details.
 | Flow control   | <Flow control value>    |
 
 
-Please refer to the <BOARD_MANUFACTURER> documentation available  [here](<board_logs_setup_documentation_url>)
+Refer to the <BOARD_MANUFACTURER> documentation available  [here](<board_logs_setup_documentation_url>)
 for more details.
 
 ### Firmware Debugging and Profiling
