@@ -5,9 +5,6 @@ plugins {
     id("com.microej.gradle.testsuite")
 }
 
-group = "com.microej.architecture.generic"
-version = "3.3.0"
-
 microej {
     architectureUsage = System.getProperty("com.microej.architecture.usage") ?: "eval" // or "prod"
     skippedCheckers = "readme,license"
