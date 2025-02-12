@@ -8,7 +8,7 @@ This Test Suite will create a soft AP, test the client methods such as scanning,
 - Tested Foundation Library: [ECOM-WIFI](https://repository.microej.com/modules/ej/api/ecom-wifi/)
 - Test Suite Module: [com.microej.pack.ecom-wifi#ecom-wifi-2_1-testsuite](https://repository.microej.com/modules/com/microej/pack/ecom-wifi/ecom-wifi-2_1-testsuite)
 
-Update the ECOM-WIFI Test Suite module version in the [build.gradle.kts](java-testsuite-runner-ecom-wifi/build.gradle.kts) to match the requirement of the tested VEE Port.
+Update the ECOM-WIFI Test Suite module version in the [build.gradle.kts](build.gradle.kts) to match the requirement of the tested VEE Port.
 
 Please refer to [VEE Port Qualification Test Suite Versioning](https://docs.microej.com/en/latest/VEEPortingGuide/veePortQualification.html#test-suite-versioning)
 to determine the ECOM-WIFI Test Suite module version.

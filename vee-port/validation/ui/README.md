@@ -12,7 +12,7 @@ Additionally, the [Tool-Java-Touch](https://github.com/MicroEJ/Tool-Java-Touch) 
 - Tested Foundation Library: [MicroUI](https://repository.microej.com/modules/ej/api/microui/)
 - Test Suite Module: [com.microej.pack.ui#ui-testsuite](https://repository.microej.com/modules/com/microej/pack/ui/ui-testsuite/)
 
-Set the UI Test Suite module version in the [build.gradle.kts](java-testsuite-runner-ui3/build.gradle.kts) to match the pack version of the tested VEE Port.
+Set the UI Test Suite module version in the [build.gradle.kts](build.gradle.kts) to match the pack version of the tested VEE Port.
 
 The test suite evolves as the UI Pack evolves: bug fixes, new features, etc. 
 A test suite is, therefore, compatible with a given range of UI Packs (cf UI Pack changelog: https://docs.microej.com/en/latest/VEEPortingGuide/uiChangeLog.html). 
