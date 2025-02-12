@@ -8,7 +8,7 @@ This Test Suite will typically test file and directory creation, access permissi
 - Tested Foundation Library: [FS](https://repository.microej.com/modules/ej/api/fs/)
 - Test Suite Module: [com.microej.pack.fs#fs-testsuite](https://repository.microej.com/modules/com/microej/pack/fs/fs-testsuite/)
 
-Set the FS Test Suite module version in the [build.gradle.kts](java-testsuite-runner-fs/build.gradle.kts) to match the pack version of the tested VEE Port.
+Set the FS Test Suite module version in the [build.gradle.kts](build.gradle.kts) to match the pack version of the tested VEE Port.
 
 Please refer to [VEE Port Qualification Test Suite Versioning](https://docs.microej.com/en/latest/VEEPortingGuide/veePortQualification.html#test-suite-versioning)
 to determine the FS Test Suite module version.

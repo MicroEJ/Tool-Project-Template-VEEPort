@@ -8,7 +8,7 @@ This Test Suite will typically create TCP sockets, UDP sockets, test client side
 - Tested Foundation Library: [NET](https://repository.microej.com/modules/ej/api/net/)
 - Test Suite Module:  [com.microej.pack.net#net-1_1-testsuite](https://repository.microej.com/modules/com/microej/pack/net/net-1_1-testsuite/)
 
-Update the NET Test Suite module version in the [build.gradle.kts](java-testsuite-runner-net/build.gradle.kts) to match the requirement of the tested VEE Port.
+Update the NET Test Suite module version in the [build.gradle.kts](build.gradle.kts) to match the requirement of the tested VEE Port.
 
 Please refer to [VEE Port Qualification Test Suite Versioning](https://docs.microej.com/en/latest/VEEPortingGuide/veePortQualification.html#test-suite-versioning)
 to determine the Network Core Engine Test Suite module version.
@@ -24,7 +24,7 @@ to determine the Network Core Engine Test Suite module version.
 ## Test Suite Properties
 
 The NET Test Suite requires specific properties depending on the implementation and test environment.
-All the properties described in this section are defined in the file [microej-testsuite-common.properties](java-testsuite-runner-net/validation/microej-testsuite-common.properties)
+All the properties described in this section are defined in the file [microej-testsuite-common.properties](validation/microej-testsuite-common.properties)
 and prefixed by `microej.java.property.`.
 
 Common properties:
