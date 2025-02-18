@@ -8,7 +8,7 @@ This Test Suite will typically test secure sockets using SSL/TLS protocol.
 - Tested Foundation Library: [SSL](https://repository.microej.com/modules/ej/api/ssl/)
 - Test Suite Module: [com.microej.pack.net#net-ssl-2_2-testsuite](https://repository.microej.com/modules/com/microej/pack/net/net-ssl-2_2-testsuite/)
 
-Update the SSL Test Suite module version in the [build.gradle.kts](java-testsuite-runner-ssl/build.gradle.kts) to match the requirement of the tested VEE Port.
+Update the SSL Test Suite module version in the [build.gradle.kts](build.gradle.kts) to match the requirement of the tested VEE Port.
 
 Please refer to [VEE Port Qualification Test Suite Versioning](https://docs.microej.com/en/latest/VEEPortingGuide/veePortQualification.html#test-suite-versioning)
 to determine the SSL Test Suite module version.
@@ -24,7 +24,7 @@ to determine the SSL Test Suite module version.
 ## Test Suite Properties
 
 The NET Test Suite requires specific properties depending on the implementation and test environment.
-All the properties described in this section are defined in the file [microej-testsuite-common.properties](java-testsuite-runner-ssl/validation/microej-testsuite-common.properties)
+All the properties described in this section are defined in the file [microej-testsuite-common.properties](validation/microej-testsuite-common.properties)
 and prefixed by `microej.java.property.`.
 
 - WiFi SSID and passphrase are set with respectively with the properties `wifi.ssid` and `wifi.passphrase`.

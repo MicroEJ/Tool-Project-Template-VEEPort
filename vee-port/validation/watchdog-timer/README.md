@@ -8,7 +8,7 @@ This Test Suite will typically test Watchdog Timer .
 - Tested Foundation Library: [Watchdog Timer](https://repository.microej.com/modules/ej/api/watchdog-timer/)
 - Test Suite Module: [com.microej.pack.watchdog-timer#watchdog-timer-testsuite#3.0.0](https://repository.microej.com/modules/com/microej/pack/watchdog-timer/watchdog-timer-testsuite/3.0.0/)
 
-Update the Watchdog Timer Test Suite module version in the [build.gradle.kts](java-testsuite-runner-watchdog-timer/build.gradle.kts) to match the requirement of the tested VEE Port.
+Update the Watchdog Timer Test Suite module version in the [build.gradle.kts](build.gradle.kts) to match the requirement of the tested VEE Port.
 
 Please refer to [VEE Port Qualification Test Suite Versioning](https://docs.microej.com/en/latest/VEEPortingGuide/veePortQualification.html#test-suite-versioning)
 to determine the Watchdog Timer Test Suite module version.
