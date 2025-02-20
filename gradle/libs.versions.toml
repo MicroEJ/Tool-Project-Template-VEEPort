@@ -6,7 +6,7 @@ pack-ui = "14.2.0"
 # APIs
 api-audio =             { group = "ej.api", name = "audio", version = "1.0.0" }
 api-bluetooth =         { group = "ej.api", name = "bluetooth", version = "2.2.2" }
-api-bon =               { group = "ej.api", name = "bon", version = "1.4.3" }
+api-bon =               { group = "ej.api", name = "bon", version = "1.4.4" }
 api-device =            { group = "ej.api", name = "device", version = "1.2.0" }
 api-drawing =           { group = "ej.api", name = "drawing", version = "1.0.5" }
 api-edc =               { group = "ej.api", name = "edc", version = "1.3.7" }
