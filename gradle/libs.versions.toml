@@ -51,6 +51,9 @@ eclasspath-logging =    { group = "ej.library.eclasspath", name = "logging", ver
 junit =             { group = "ej.library.test", name = "junit", version = "1.7.1" }
 junit-platform =    { group = "org.junit.platform", name = "junit-platform-launcher", version = "1.8.2" }
 
+# Simulation
+mock-api = { group = "com.microej.tool.runtime", name = "mock-api", version = "2.5.0" }
+
 # Testsuites
 testsuite-audio =               { group = "com.microej.pack.audio", name = "audio-testsuite", version = "1.0.0" }
 testsuite-ecom-wifi =           { group = "com.microej.pack.ecom-wifi", name = "ecom-wifi-2_1-testsuite", version = "0.2.0" }

@@ -5,3 +5,7 @@ plugins {
 microej {
     skippedCheckers = "readme,changelog,license,nullanalysis"
 }
+
+dependencies{
+    compileOnly(libs.mock.api)
+}
