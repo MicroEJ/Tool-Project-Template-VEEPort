@@ -7,7 +7,5 @@ microej {
 }
 
 dependencies{
-
     compileOnly(libs.mock.api)
-
 }
