@@ -58,13 +58,13 @@ In your VEE Port multi-project:
 - update the `settings.gradle.kts` file of the multi-project to include the Test Suite projects.
   For example, if the 2 Test Suite projects for Core and FS have been copied in the `validation` folder of the VEE Port multi-project::
 
+    ```
     rootProject.name = "my-veeport"
-    include("vee-port-configuration", "front-panel")
+    include("vee-port", "front-panel")
 
-    include("java-testsuite-runner-core")
-    include("java-testsuite-runner-fs")
-    project(":java-testsuite-runner-core").projectDir = file("validation/core/java-testsuite-runner-core")
-    project(":java-testsuite-runner-fs").projectDir = file("validation/fs/java-testsuite-runner-fs")
+    include("vee-port:validation:core")
+    include("vee-port:validation:fs")
+    ```
   
 Then for each added Tests Suite project:
 
@@ -73,7 +73,7 @@ Then for each added Tests Suite project:
 
     ```
     dependencies {
-      microejVee(project(":vee-port-configuration"))
+      microejVee(project(":vee-port"))
     }
     ```
 
