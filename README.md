@@ -69,7 +69,7 @@ The <VEE_PORT> is derived into:
 
 - PC with Windows <Windows_version> or Linux (tested with <Linux_distribution_name_and_version>)
 - Internet connection to [MicroEJ Central Repository](https://developer.microej.com/central-repository/)
-- SDK `<MICROEJ_SDK_VERSION>` or higher, installation instruction available [here](https://docs.microej.com/en/latest/SDK6UserGuide/install.html)
+- SDK `<MICROEJ_SDK_VERSION>` or higher, installation instructions available [here](https://docs.microej.com/en/latest/SDK6UserGuide/install.html)
 - <BOARD_NAME> board
 
 ## <VEE_PORT> Setup
