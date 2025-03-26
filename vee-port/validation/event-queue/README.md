@@ -20,6 +20,7 @@ to determine the Event Queue Test Suite module version.
 
 ## Usage
 
+- Add the content of [src/test/c](src/test/c) folder in your BSP. Add all files of [src](src/test/c/src) folder as source files, and [inc](src/test/c/inc) folder as include path.
 - Follow the configuration and execution steps described in VEE Port Test Suites [documentation](../README.md).
 
 ## Test Suite Source Code Navigation

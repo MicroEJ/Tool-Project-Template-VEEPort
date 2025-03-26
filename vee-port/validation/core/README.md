@@ -21,13 +21,9 @@ Tests can be launched:
 
 ### Launcher Mode
 
+- Add the [core_test_natives.c](src/test/c/src/core_test_natives.c) file in your BSP and add it as a source file. These natives allow to test the FPU configuration and SNI native calling convention.
+- For a best result in the Java Round Robin test, disable all the C native tasks except the MicroEJ task.
 - Follow the configuration and execution steps described in VEE Port Test Suites [documentation](../README.md).
-
--  Before linking the application against the VEE Port, add the [core_test_natives.c](src/test/c/src/core_test_natives.c) file in your BSP to test the FPU configuration and SNI native calling convention
-
--  For a best result in the Java Round Robin test, disable all the C native tasks except the MicroEJ task.
-
--  Once all the tests have passed successfully, MicroEJ Core is validated.
 
 ### VEE Port Test Suite Mode
 
