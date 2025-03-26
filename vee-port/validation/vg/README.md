@@ -8,7 +8,7 @@ This Test Suite will test vector drawing capabilities.
 - Tested Foundation Library: [MicroVG](https://repository.microej.com/modules/ej/api/microvg/)
 - Test Suite Module: [com.microej.pack.vg#vg-testsuite](https://repository.microej.com/modules/com/microej/pack/vg/vg-testsuite/)
 
-Set the VG Test Suite module version in the [build.gradle.kts](java-testsuite-runner-vg/build.gradle.kts) to match the pack version of the VEE Port
+Set the VG Test Suite module version in the [build.gradle.kts](build.gradle.kts) to match the pack version of the VEE Port
 tested.
 
 The test suite evolves as the VG Pack evolves: bug fixes, new features, etc.

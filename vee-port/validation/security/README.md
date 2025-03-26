@@ -8,7 +8,7 @@ This Test Suite will typically test signature algorithms implementation, certifi
 - Tested Foundation Library: [Security](https://repository.microej.com/modules/ej/api/security/)
 - Test Suite Module: [com.microej.pack.security#security-1_4-testsuite](https://repository.microej.com/modules/com/microej/pack/security/security-1_4-testsuite)
 
-Update the Security Test Suite module version in the [build.gradle.kts](java-testsuite-runner-security/build.gradle.kts) to match the requirement of the tested VEE Port.
+Update the Security Test Suite module version in the [build.gradle.kts](build.gradle.kts) to match the requirement of the tested VEE Port.
 
 Please refer to [VEE Port Qualification Test Suite Versioning](https://docs.microej.com/en/latest/VEEPortingGuide/veePortQualification.html#test-suite-versioning)
 to determine the Security Test Suite module version.
