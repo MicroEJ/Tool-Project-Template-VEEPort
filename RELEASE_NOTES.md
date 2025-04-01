@@ -22,7 +22,7 @@ This VEE Port contains the following dependencies:
 
 
 Please refer to the VEE Port [module description file](./vee-port/build.gradle.kts)
-for more details.
+and the [version catalogs file](./gradle/libs.versions.toml) for more details.
 
 ### Board Support Package
 
