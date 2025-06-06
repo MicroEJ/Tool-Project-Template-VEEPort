@@ -52,16 +52,16 @@ jlong Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments02(jl
 }
 
 jlong Java_com_microej_core_tests_MicroejCoreValidation_testNativeArguments03(jint i1, jlong l2, jint i3, jlong l4, jint i5, jlong l6, jint i7, jlong l8, jint i9, jlong l10){
-   if(i1==0x85868788 && 
-      l2==0x898A8B8C8D8E8F90ll && 
-      i3==0x91929394 && 
-      l4==0x95969798999A9B9Cll && 
-      i5==0x9D9E9FA0 && 
-      l6==0xA1A2A3A4A5A6A7A8ll && 
-      i7==0xA9AAABAC && 
-      l8==0xADAEAFB0B1B2B3B4ll && 
-      i9==0xB5B6B7B8 && 
-      l10==0xB9BABBBCBDBEBFC0ll){
+	if (i1 == (jint)0x85868788 &&
+	    l2 == (jlong)0x898A8B8C8D8E8F90ll &&
+	    i3 == (jint)0x91929394 &&
+	    l4 == (jlong)0x95969798999A9B9Cll &&
+	    i5 == (jint)0x9D9E9FA0 &&
+	    l6 == (jlong)0xA1A2A3A4A5A6A7A8ll &&
+	    i7 == (jint)0xA9AAABAC &&
+	    l8 == (jlong)0xADAEAFB0B1B2B3B4ll &&
+	    i9 == (jint)0xB5B6B7B8 &&
+	    l10 == (jlong)0xB9BABBBCBDBEBFC0ll) {
        return 0xC1C2C3C4C5C6C7C8ll;
    }
    else {
