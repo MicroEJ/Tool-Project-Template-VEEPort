@@ -18,19 +18,19 @@ The following table shows the relationship between the different versions of the
 
 The table indicates:
 
-* the version of the project `java-testsuite-runner-vg`,
-* the version of the test suite library fetched by the project `java-testsuite-runner-vg`,
+* the version of the test suite library,
 * the compatible VG Packs to run the tests of the test suite,
 * the minimum version of the MicroVG API required by the test suite.
 
-| Project version | TestSuite version | VG Pack Range   | MicroVG API Range |
-|-----------------|-------------------|-----------------|-------------------|
-| 1.4.0           | 4.0.0             | [1.7.0-2.0.0[   | [1.5.0-2.0.0[     |
-| 1.3.0           | 3.0.0             | [1.6.0-2.0.0[   | [1.4.0-2.0.0[     |
-|                 | 2.7.0             | [1.5.1-2.0.0[   | [1.4.0-2.0.0[     |
-| 1.2.0           | 2.6.0             | [1.5.0-2.0.0[   | [1.4.0-2.0.0[     |
-| 1.1.0           | 2.5.0             | [1.4.2-2.0.0[   | [1.4.0-2.0.0[     |
-| 1.0.0           | 2.2.0             | [1.3.0-2.0.0[   | [1.3.0-2.0.0[     |
+| TestSuite version | VG Pack Range | MicroVG API Range |
+|-------------------|---------------|-------------------|
+| 4.1.0             | [1.7.1-2.0.0[ | [1.5.0-2.0.0[     |
+| 4.0.0             | [1.7.0-2.0.0[ | [1.5.0-2.0.0[     |
+| 3.0.0             | [1.6.0-2.0.0[ | [1.4.0-2.0.0[     |
+| 2.7.0             | [1.5.1-2.0.0[ | [1.4.0-2.0.0[     |
+| 2.6.0             | [1.5.0-2.0.0[ | [1.4.0-2.0.0[     |
+| 2.5.0             | [1.4.2-2.0.0[ | [1.4.0-2.0.0[     |
+| 2.2.0             | [1.3.0-2.0.0[ | [1.3.0-2.0.0[     |
 
 ## Requirements
 
@@ -54,10 +54,37 @@ These files allow to skip the irrelevant tests according to the target.
 The content of a file must be copied into the `config.properties` file.
 These files are available in the MicroVG testsuite JAR file, in the folder `settings`.
 
+To skip a test, add a property in the file ``config.properties``.
 This is an example of property to skip the test `TestPath.testVeryLongDynamicPath()`:
 
 ```
 microej.testsuite.properties.microej.java.property.tests.TestPath.testVeryLongDynamicPath.skip=true
+```
+
+To exclude all tests of a class, exclude this class in the file ``build.gradle.kts``.
+This is an example to skip the class `TestAlpha`:
+
+```
+excludeTestsMatching("com.microej.microvg.test._AllTests_TestAlpha*")
+```
+
+## External Resources
+
+The tests `` TestImageExternal`` and ``TestFontExternal`` test the usage (loading and drawing) of some MicroVG vector images and MicroVG vector fonts stored as external resources.
+Skip these tests when the VEE Port does not provide a management of the external resources. 
+
+```
+excludeTestsMatching("*External"*")
+```
+
+## Fonts OTF
+
+The VEE Port can disable the support of the Open Type Font (OTF).
+Skip the associated tests:
+
+```
+excludeTestsMatching("*OpenType*")
+excludeTestsMatching("*OTF*")
 ```
 
 ## Usage
