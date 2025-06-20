@@ -21,6 +21,7 @@ dependencies {
     // microejPack(libs.pack.device)
     // microejPack(libs.pack.ecom.network)
     // microejPack(libs.pack.ecom.wifi)
+    // microejPack(libs.pack.gnss)
     // microejPack(libs.pack.vg)
     // microejPack(libs.pack.watchdog.timer)
 
