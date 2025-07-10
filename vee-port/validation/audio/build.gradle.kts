@@ -7,7 +7,7 @@ plugins {
 
 microej {
     architectureUsage = System.getProperty("com.microej.architecture.usage") ?: "eval" // or "prod"
-    skippedCheckers = "readme,license"
+    skippedCheckers = "readme,license,changelog"
 }
 
 dependencies {
