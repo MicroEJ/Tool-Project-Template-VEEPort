@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Changed
 
-- Update the delay tolerance in ``testTime`` and ``testSetApplicationTime``.
+- Update the delay tolerance in ``testTime`` and ``testSetApplicationTime`` to handle correctly time precision and different clock sources.
 
 ### [3.4.0] - 2024-12-13
 

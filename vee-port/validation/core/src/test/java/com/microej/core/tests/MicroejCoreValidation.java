@@ -35,7 +35,7 @@ import ej.bon.Util;
  */
 public class MicroejCoreValidation {
 
-	private static final String VERSION = "3.4.0";
+	private static final String VERSION = "3.5.0";
 
 	private static final String PROPERTY_PREFIX = "com.microej.core.tests.";
 	private static final String OPTION_CLOCK_NB_SECONDS = "clock.seconds";
@@ -97,7 +97,7 @@ public class MicroejCoreValidation {
 				+ "                                  *");
 		System.out.println(sep);
 		System.out.println(
-				"* Copyright 2013-2024 MicroEJ Corp. All rights reserved.                                            *");
+				"* Copyright 2013-2025 MicroEJ Corp. All rights reserved.                                            *");
 		System.out.println(
 				"* Use of this source code is governed by a BSD-style license that can be found with this software.  *");
 		System.out.println(sep);
@@ -368,7 +368,7 @@ public class MicroejCoreValidation {
 			final long montonicTimeAfter = Util.platformTimeMillis();
 			System.out.println("...done");
 
-			// Application and Monotonic clocks are not synchronized.
+			// Application and Monotonic clocks may not be synchronized.
 			// Thread.sleep() is based on Monotonic clock -> Test tolerates 1 ms difference between the 2 times.
 			long expectedApplicationTimeAfter = applicationTimeBefore + timeOffset + delay - 1;
 			long expectedMonotonicTimeAfter = monotonicTimeBefore + delay;
