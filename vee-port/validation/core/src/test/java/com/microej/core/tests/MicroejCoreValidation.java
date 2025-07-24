@@ -1,7 +1,7 @@
 /*
  * Java
  *
- * Copyright 2013-2024 MicroEJ Corp. All rights reserved.
+ * Copyright 2013-2025 MicroEJ Corp. All rights reserved.
  * Use of this source code is governed by a BSD-style license that can be found with this software.
  */
 package com.microej.core.tests;
@@ -311,7 +311,10 @@ public class MicroejCoreValidation {
 				DEFAULT_MAX_ALLOWED_CLOCK_TICK_DURATION_MS, "milliseconds");
 		final long precisionLimitNano = precisionLimit * 1000000l;
 		long delay = 5 * 1000;
-		long delayNano = delay * 1000000l;
+		// If the LLMJVM_IMPL_scheduleRequest precision is in milliseconds and
+		// time precision is in nanoseconds, a maximum difference of 1 ms can be observed in nanoseconds.
+		// -> Test tolerates 1 ms difference for the nanoseconds delay.
+		long delayNano = (delay - 1) * 1000000l;
 		System.out.println("Waiting for " + delay / 1000 + "s...");
 		long timeBefore = Util.platformTimeMillis();
 		long nanoTimeBefore = Util.platformTimeNanos();
@@ -365,7 +368,9 @@ public class MicroejCoreValidation {
 			final long montonicTimeAfter = Util.platformTimeMillis();
 			System.out.println("...done");
 
-			long expectedApplicationTimeAfter = applicationTimeBefore + timeOffset + delay;
+			// Application and Monotonic clocks are not synchronized.
+			// Thread.sleep() is based on Monotonic clock -> Test tolerates 1 ms difference between the 2 times.
+			long expectedApplicationTimeAfter = applicationTimeBefore + timeOffset + delay - 1;
 			long expectedMonotonicTimeAfter = monotonicTimeBefore + delay;
 
 			// Test that modifying the application time is correctly done
