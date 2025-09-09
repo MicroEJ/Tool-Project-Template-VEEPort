@@ -1,34 +1,23 @@
 /**
  * @file veeport_configuration.h
  * 
- * @brief Gathers VEE Port specific configurations and LLAPI configurations.
- * 
- * This file aims at gathering the configuration of all abstraction layer configurations
- * in this VEE Port. Indeed, this file is the place to override the default configuration
- * for the LLAPIs imported with C modules and VEE Port specific configurations.
- * 
- * The advantages are the following:
- * - Having all specific configurations of the VEE Port centralized in one file
- * - Allows to not modify C module sources only for the VEE Port configuration
- * - Standardized C module configuration system
+ * @brief Configures the C modules integrated for this port of MICROEJ VEE.
+ *
+ * C modules configured in this file include:
+ * - Foundation Libraries Abstraction Layer Implementations (Core, FS, NET, ...)
+ * - Intermediate Abstraction Layer Implementations (Time, OSAL, ...)
+ * - Libraries used by Abstraction Layer Implementations (Logging, Async-Worker, ...)
  * 
  * 
- * ***** HOW TO USE THIS FILE? *****
+ * ***** HOW TO USE THIS TEMPLATE? *****
  * 
- * 1. Add the VEE Port configurations you need in this file. For example, a macro to enable
- * the Coremark benchmark execution can be added.
- * 
- * 2. Add configuration separators to sort all the configurations, for example:
- * 
- * // ############################################################################
- * //                           Core Configuration
- * // ############################################################################
+ * This template provides the list of configurations for the MicroEJ public C components with some documentation.
+ * The VEE Port configurations file should link to this template for reference.
+ * Then, the VEE Port configurations file should set non-default values and remove advanced configurations with default value to improve readability.
+ * Finally, the VEE Port should set `HAS_VEEPORT_CONFIGURATION_H` to `1` for the C modules compilation.
  *
  * 3. When creating a new configuration, favor to check its value (i.e. 0 or 1) instead
  * of comment/uncomment its definition.
- * 
- * 4. Remove the unused configurations defined in this file. This file will store the
- * possible configurations of different LLAPIs once the related modules are compliant.
  * 
  * 
  * ***** WHEN AN IMPORTED C MODULE DOES NOT USE THIS FILE YET *****
@@ -90,7 +79,7 @@
 
 
 // ############################################################################
-//                        Kernel Feature Configuration
+//                        KF Configuration
 // ############################################################################
    
 
