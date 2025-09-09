@@ -2,55 +2,35 @@
  * @file veeport_configuration.h
  * 
  * @brief Configures the C modules integrated for this port of MICROEJ VEE.
- *
- * C modules configured in this file include:
- * - Foundation Libraries Abstraction Layer Implementations (Core, FS, NET, ...)
- * - Intermediate Abstraction Layer Implementations (Time, OSAL, ...)
- * - Libraries used by Abstraction Layer Implementations (Logging, Async-Worker, ...)
- * 
  * 
  * ***** HOW TO USE THIS TEMPLATE? *****
  * 
- * This template provides the list of configurations for the MicroEJ public C components with some documentation.
- * The VEE Port configurations file should link to this template for reference.
- * Then, the VEE Port configurations file should set non-default values and remove advanced configurations with default value to improve readability.
- * Finally, the VEE Port should set `HAS_VEEPORT_CONFIGURATION_H` to `1` for the C modules compilation.
+ * This 'veeport_configuration.h' file contains all the custom c modules configurations of the VEE Port.
+ * 
+ * 1. The configuration file of each C module (i.e. '[C MODULE NAME]_configuration.h') should include this
+ * 'veeport_configuration.h' file as followed:
+ * 
+ *  // Include VEE Port User configuration file
+ *  #if defined __has_include
+ *  	#if __has_include("veeport_configuration.h")
+ *  		#include "veeport_configuration.h"
+ *  	#else
+ *  		#pragma message("'veeport_configuration.h' not found, create and add this file in the project.")
+ *  	#endif // __has_include("veeport_configuration.h")
+ *  #else
+ *  	#pragma message("Ensure 'veeport_configuration.h' exists in your project for custom configurations.")
+ *  	#include "veeport_configuration.h"
+ *  #endif // defined __has_include
  *
- * 3. When creating a new configuration, favor to check its value (i.e. 0 or 1) instead
- * of comment/uncomment its definition.
+ * 2. Then, in the "[C MODULE NAME]_configuration.h" file, default values for each parameter should be provided
+ * as followed:
  * 
- * 
- * ***** WHEN AN IMPORTED C MODULE DOES NOT USE THIS FILE YET *****
- * 
- * Whenever you import a C module that has an "_configuration.h" file not up to date with
- * the veeport_configuration.h file, please update it to make it compliant. To do that, follow
- * these steps:
- * 
- * 1. Add the include directive of the file veeport_configuration.h in the "_configuration.h"
- * file, you can add the code snippet below:
- * 
- * #if !defined(__CC_ARM)
- * // cppcheck-suppress [misra-c2012-20.9]: The macro '__has_include' is defined by the toolchain.
- *    #if __has_include("veeport_configuration.h")
- * 	  #include "veeport_configuration.h"
- *    #else
- * 	  #warning "'veeport_configuration.h' not found, default configuration used for all parameters."
- *    #endif // __has_include("veeport_configuration.h")
- * #else
- *    #warning "This C module needs a 'veeport_configuration.h' in your ARMCC project. "
- *    #include "veeport_configuration.h"
- * #endif // !defined ( __CC_ARM)
- *
- * 2. Encapsulates the configurations in the "_configuration.h" file with #ifndef - #endif
- * brackets as follows:
- * 
- * #ifndef UI_FEATURE_BRS
- * #define UI_FEATURE_BRS (UI_FEATURE_BRS_PREDRAW)
+ * #ifndef MY_CONFIGURATION
+ * #define MY_CONFIGURATION (MY_CONFIGURATION_DEFAULT_VALUE)
  * #endif
  * 
- * 3. If you are a MicroEJ developer, create an MR of the C module with the updated configuration file.
- * Then, create a MR in the github repository Tool-Project-Template-VEEPort and add the configurations
- * with their default value here.
+ * 3. If your C module does not comply with this description, please update it so that all the custom configuration
+ * is moved to this 'veeport_configuration.h' file.
  * 
  */
 
@@ -67,7 +47,7 @@
 
 
 // ############################################################################
-//                           CORE Configuration
+//                        Core Engine Configuration
 // ############################################################################
 
 // Example of a Core configuration,
