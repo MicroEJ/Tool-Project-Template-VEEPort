@@ -17,10 +17,10 @@ Both `build.XXX` and `run.XXX` load the `set_project_env.XXX`
 script to ensure the environment is properly set up.
 
 The behavior of `build.XXX` MUST follow the
-specification described in [BSP Build Script File](https://docs.microej.com/en/latest/PlatformDeveloperGuide/platformCreation.html#build-script-file).
+specification described in [BSP Build Script File](https://docs.microej.com/en/latest/VEEPortingGuide/bspConnection.html#build-script-file).
 
 The behavior of `run.XXX` MUST follow the
-specification described in [BSP Run Script File](https://docs.microej.com/en/latest/PlatformDeveloperGuide/platformCreation.html#run-script-file).
+specification described in [BSP Run Script File](https://docs.microej.com/en/latest/VEEPortingGuide/bspConnection.html#run-script-file).
 
 ## Usage
 
