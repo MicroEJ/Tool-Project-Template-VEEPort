@@ -1,0 +1,44 @@
+@ECHO off
+
+REM 'set_project_env.bat' implementation 
+
+REM 'set_project_env' is responsible for
+REM - checking the availability of required environment variables
+REM - setting project local variables for 'build.bat' and 'run.bat'
+
+REM Required Environment Variable
+REM ARMGCC toolchain installation directory (e.g.: C:\Program Files (x86)\GNU Arm Embedded Toolchain\VERSION)
+REM ARMGCC_CHANGEIT_INSTALLATION_DIR
+
+IF "%ARMGCC_CHANGEIT_INSTALLATION_DIR%" == "" (
+    ECHO Please set the environment variable 'ARMGCC_CHANGEIT_INSTALLATION_DIR'
+    exit /B -1
+)
+
+SET ARMGCC_INSTALLATION_DIR=%ARMGCC_CHANGEIT_INSTALLATION_DIR%
+
+REM Directory where the Makefile is located
+SET ARMGCC_PROJECT_MAKEFILE_DIR=CHANGEIT
+
+REM Directory where the binary will be stored after the build step
+SET ARMGCC_PROJECT_BINARY_DIR=CHANGEIT
+
+REM Name of the binary
+SET ARMGCC_PROJECT_BINARY_NAME=CHANGEIT
+
+REM Build command
+SET ARMGCC_PROJECT_BUILD_CMD=make
+
+REM Build command options
+SET ARMGCC_PROJECT_BUILD_CMD_OPTS=CHANGEIT
+
+REM Flash command
+SET ARMGCC_PROJECT_FLASH_CMD=flash
+
+ECHO "ARMGCC_INSTALLATION_DIR=%ARMGCC_INSTALLATION_DIR%"
+ECHO "ARMGCC_PROJECT_MAKEFILE_DIR=%ARMGCC_PROJECT_MAKEFILE_DIR%"
+ECHO "ARMGCC_PROJECT_BINARY_NAME=%ARMGCC_PROJECT_BINARY_NAME%"
+ECHO "ARMGCC_PROJECT_BINARY_DIR=%ARMGCC_PROJECT_BINARY_DIR%"
+ECHO "ARMGCC_PROJECT_BUILD_CMD=%ARMGCC_PROJECT_BUILD_CMD%"
+ECHO "ARMGCC_PROJECT_BUILD_CMD_OPTS=%ARMGCC_PROJECT_BUILD_CMD_OPTS%"
+ECHO "ARMGCC_PROJECT_FLASH_CMD=%ARMGCC_PROJECT_FLASH_CMD%"
