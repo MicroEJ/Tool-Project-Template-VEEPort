@@ -14,15 +14,13 @@
  *  #if defined __has_include
  *  	#if __has_include("veeport_configuration.h")
  *  		#include "veeport_configuration.h"
- *  	#else
- *  		#pragma message("'veeport_configuration.h' not found, create and add this file in the project.")
  *  	#endif // __has_include("veeport_configuration.h")
  *  #else
- *  	#pragma message("Ensure 'veeport_configuration.h' exists in your project for custom configurations.")
+ *  // Ensure 'veeport_configuration.h' exists in your project for custom configurations.
  *  	#include "veeport_configuration.h"
  *  #endif // defined __has_include
  *
- * 2. Then, in the "[C MODULE NAME]_configuration.h" file, default values for each parameter should be provided
+ * 2. Then, in the '[C MODULE NAME]_configuration.h' file, default values for each parameter should be provided
  * as followed:
  * 
  * #ifndef MY_CONFIGURATION
