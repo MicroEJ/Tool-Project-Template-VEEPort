@@ -27,9 +27,6 @@
  * #define MY_CONFIGURATION (MY_CONFIGURATION_DEFAULT_VALUE)
  * #endif
  * 
- * 3. If your C module does not comply with this description, please update it so that all the custom configuration
- * is moved to this 'veeport_configuration.h' file.
- * 
  */
 
 #ifndef VEEPORT_CONFIGURATION_H
@@ -48,7 +45,7 @@
 //                        Core Engine Configuration
 // ############################################################################
 
-// Example of a Core configuration,
+// Example of a Core Engine configuration,
 //
 // /**
 //  * @brief Sets this define to 1 to run the memory and Coremark benchmarks, disabled by default.
