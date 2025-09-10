@@ -3,11 +3,11 @@
  * 
  * @brief Configures the C modules integrated for this port of MICROEJ VEE.
  * 
- * ***** HOW TO USE THIS TEMPLATE? *****
+ * ***** HOW DOES THIS CONFIGURATION FILE WORKS *****
  * 
  * This 'veeport_configuration.h' file contains all the custom c modules configurations of the VEE Port.
  * 
- * 1. The configuration file of each C module (i.e. '[C MODULE NAME]_configuration.h') should include this
+ * The configuration file of each C module (i.e. '[C MODULE NAME]_configuration.h') should include this
  * 'veeport_configuration.h' file as followed:
  * 
  *  // Include VEE Port User configuration file
@@ -20,7 +20,7 @@
  *  	#include "veeport_configuration.h"
  *  #endif // defined __has_include
  *
- * 2. Then, in the '[C MODULE NAME]_configuration.h' file, default values for each parameter should be provided
+ * Then, in the '[C MODULE NAME]_configuration.h' file, default values for each parameter should be provided
  * as followed:
  * 
  * #ifndef MY_CONFIGURATION
