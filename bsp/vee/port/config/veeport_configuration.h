@@ -5,7 +5,7 @@
  * 
  * ***** HOW TO USE THIS TEMPLATE? *****
  * 
- * This 'veeport_configuration.h' file contains all the custom c modules configurations of the VEE Port.
+ * This 'veeport_configuration.h' file contains all the custom C modules configurations of the VEE Port.
  * 
  * 1. The configuration file of each C module (i.e. '[C MODULE NAME]_configuration.h') should include this
  * 'veeport_configuration.h' file as followed:
