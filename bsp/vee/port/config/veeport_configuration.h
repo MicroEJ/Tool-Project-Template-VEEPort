@@ -3,12 +3,17 @@
  * 
  * @brief Configures the C modules integrated for this port of MICROEJ VEE.
  * 
- * ***** HOW DOES THIS CONFIGURATION FILE WORKS *****
- * 
  * This header file contains all the custom C modules configurations of the VEE Port.
+ * Use this file to override the C module configurations in the VEE Port.
+ * Please refer to the C module configuration file to learn about the available configurations.
+ * This file should also be used to define VEE Port specific configurations.
+ *
+ * ***** HOW TO INTEGRATE THIS FILE WITH C MODULES *****
+ *
+ * This section explains how to integrate this file with C module configuration files.
  * 
  * The configuration file of each C module (i.e. '[C MODULE NAME]_configuration.h') should include this
- * 'veeport_configuration.h' file as followed:
+ * file as followed:
  * 
  *  // Include VEE Port User configuration file
  *  #if defined __has_include
