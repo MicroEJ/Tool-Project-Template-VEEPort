@@ -5,7 +5,7 @@
  * 
  * This header file contains all the custom C modules configurations of the VEE Port.
  * Use this file to override the C module configurations in the VEE Port.
- * Please refer to the C module configuration file to learn about the available configurations.
+ * Please refer to the C module configuration files to learn about the available configurations.
  * This file should also be used to define VEE Port specific configurations.
  *
  * ***** HOW TO INTEGRATE THIS FILE WITH C MODULES *****
