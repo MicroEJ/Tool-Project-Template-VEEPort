@@ -25,21 +25,20 @@ Notes:
 
 The table indicates:
 
-* the version of the project `java-testsuite-runner-ui3`,
-* the version of the test suite library fetched by the project `java-testsuite-runner-ui3`,
+* the version of the test suite library,
 * the compatible UI Packs to run the tests of the test suite,
 * the minimum version of the MicroUI API required by the test suite.
 
-| Project version  | TestSuite version        | UI Pack Range            | MicroUI API Range | Testsuite changes                                                      |
-|------------------|--------------------------|--------------------------|-------------------|------------------------------------------------------------------------|
-| 14.1.1 and above | Identical to the UI Pack | Identical to the UI Pack | [3.6.0-4.0.0[     |                                                                        |
-| 1.8.0            | 1.8.1                    | [14.0.0-15.0.0[          | [3.5.0-4.0.0[     | Add a bench to check the VEE Port evolution                            |
-| 1.7.0            | 1.7.0                    | [14.0.0-15.0.0[          | [3.5.0-4.0.0[     | Add Buffer Refresh Strategies tests                                    |
-| 1.4.0            | 1.4.0                    | [13.7.0-14.0.0[          | [3.0.3-4.0.0[     | Add image formats with premultiplied alpha values                      |
-| [1.3.0-1.3.1]    | 1.3.0                    | [13.4.1-14.0.0[          | [3.0.3-4.0.0[     | Allow setting the image heap size according to the display buffer size |
-| 1.2.0            | 1.2.0                    | [13.4.1-14.0.0[          | [3.0.3-4.0.0[     | Add tests for circles and ellipses                                     |
-| 1.1.0            | 1.1.0                    | [13.0.0-14.0.0[          | [3.0.3-4.0.0[     | Add tests for GPU ports                                                |
-| 1.0.0            | 1.0.0                    | [13.0.0-14.0.0[          | [3.0.3-4.0.0[     | Initial version                                                        |
+| TestSuite version        | UI Pack Range            | MicroUI API Range | Testsuite changes                                                      |
+|--------------------------|--------------------------|-------------------|------------------------------------------------------------------------|
+| Identical to the UI Pack | Identical to the UI Pack | [3.6.0-4.0.0[     |                                                                        |
+| 1.8.1                    | [14.0.0-15.0.0[          | [3.5.0-4.0.0[     | Add a bench to check the VEE Port evolution                            |
+| 1.7.0                    | [14.0.0-15.0.0[          | [3.5.0-4.0.0[     | Add Buffer Refresh Strategies tests                                    |
+| 1.4.0                    | [13.7.0-14.0.0[          | [3.0.3-4.0.0[     | Add image formats with premultiplied alpha values                      |
+| 1.3.0                    | [13.4.1-14.0.0[          | [3.0.3-4.0.0[     | Allow setting the image heap size according to the display buffer size |
+| 1.2.0                    | [13.4.1-14.0.0[          | [3.0.3-4.0.0[     | Add tests for circles and ellipses                                     |
+| 1.1.0                    | [13.0.0-14.0.0[          | [3.0.3-4.0.0[     | Add tests for GPU ports                                                |
+| 1.0.0                    | [13.0.0-14.0.0[          | [3.0.3-4.0.0[     | Initial version                                                        |
 
 ## Requirements
 
@@ -50,14 +49,16 @@ Skip Tests
 
 Some tests might be skipped depending on the GPU: the MicroUI testsuite checks all the MicroUI specification.
 A GPU may not support some drawings, for instance the usage of some image formats.
-As a consequence, the associated tests can be skippered to make the testsuite go faster.
+As a consequence, the associated tests can be skipped to make the testsuite go faster.
 
+To skip a test, add a property in the file ``config.properties``.
 This is an example of property to skip the test `EllipseReference.testCircles()`:
 
 ```
 microej.testsuite.properties.microej.java.property.tests.EllipseReference.testCircles.skip=true
 ```
 
+To exclude all tests of a class, exclude this class in the file ``build.gradle.kts``.
 All *GPU* tests are gathered in the same package `com.microej.microui.test.gpu`, which can be excluded as a whole if the BSP does not provide a GPU:
 
 ```
