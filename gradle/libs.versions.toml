@@ -59,7 +59,7 @@ mock-api = { group = "com.microej.tool.runtime", name = "mock-api", version = "2
 testsuite-audio =               { group = "com.microej.pack.audio", name = "audio-testsuite", version = "1.0.0" }
 testsuite-ecom-wifi =           { group = "com.microej.pack.ecom-wifi", name = "ecom-wifi-2_1-testsuite", version = "0.2.0" }
 testsuite-event =               { group = "com.microej.pack.event", name = "event-testsuite", version = "2.1.0" }
-testsuite-external-resource =   { group = "com.microej.pack.external-resource", name = "external-resource-testsuite", version = "1.0.2" }
+testsuite-external-resource =   { group = "com.microej.pack.external-resource", name = "external-resource-testsuite", version = "1.0.3" }
 testsuite-fs =                  { group = "com.microej.pack.fs", name = "fs-testsuite", version = "3.0.8" }
 testsuite-fs-openjdk =          { group = "com.microej.pack.fs", name = "fs-testsuite-openjdk", version = "1.0.1" }
 gnss-init-api =                 { group = "com.microej.pack.gnss", name = "gnss-init-api", version = "1.0.0" }
