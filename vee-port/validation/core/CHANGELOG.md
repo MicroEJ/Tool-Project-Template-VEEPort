@@ -5,11 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [3.6.0] - 2026-04-08
+
+## Changed
+
+- Add a configuration for the monotonic time tolerance: ``monotonic.time.upper.tolerance.milliseconds``
+  (default 100ms, test behavior unchanged)
+- Add a configuration for the application time tolerance: ``application.time.tolerance.milliseconds``
+  (default 1ms, test behavior unchanged)
+
 ### [3.5.0] - 2025-07-24
 
 ## Changed
 
-- Update the delay tolerance in ``testTime`` and ``testSetApplicationTime`` to handle correctly time precision and different clock sources.
+- Update the delay tolerance in ``testTime`` and ``testSetApplicationTime`` to handle correctly time precision and
+  different clock sources.
 
 ### [3.4.0] - 2024-12-13
 
@@ -28,7 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Add property ``com.microej.core.tests.can.set.system.time`` allowing to skip checks on application time setting in test ``testMonotonicTime``.
+- Add property ``com.microej.core.tests.can.set.system.time`` allowing to skip checks on application time setting in
+  test ``testMonotonicTime``.
 - Switch to Util.platformTimeMillis() in test testTime to avoid shifting issues
 - Update the default pattern that prevents a test from being re-executed on failure.
   The new string is ``MicroEJ START``, which is the one printed in the latest VEE Ports (formerly ``VM start``).
@@ -47,10 +58,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add check for ``LLMJVM_IMPL_setApplicationTime``.
-- Test Thread.sleep() with max number of milliseconds (Long.MAX_VALUE) does not cause an infinite loop in the MicroEJ Core due to time conversion overflow.
+- Test Thread.sleep() with max number of milliseconds (Long.MAX_VALUE) does not cause an infinite loop in the MicroEJ
+  Core due to time conversion overflow.
 - Add check for ``LLMJVM_IMPL_getCurrentTime``, which should not go back in time.
 - Add check for C malloc heap configuration which can be used when parsing float.
-- Add check of ``LLMJVM_IMPL_scheduleRequest``, ``LLMJVM_IMPL_getCurrentTime``, and ``LLMJVM_IMPL_getTimeNanos`` precision
+- Add check of ``LLMJVM_IMPL_scheduleRequest``, ``LLMJVM_IMPL_getCurrentTime``, and ``LLMJVM_IMPL_getTimeNanos``
+  precision
 
 ### Changed
 
@@ -74,25 +87,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Removed a comment about ``testFloat`` and ``testDouble`` functions
-  in ``MicroEJCoreValidation.java``.  This is documented in the README
+  in ``MicroEJCoreValidation.java``. This is documented in the README
   of the project.
 
 ## [3.0.0] - 2020-06-02
 
 ### Changed
 
--  Previous test functions are now JUnit test cases
+- Previous test functions are now JUnit test cases
 
 ## [2.4.0] - 2019-12-18
 
 ### Added
 
--  New floating-point related tests: parse/toString for float/double
+- New floating-point related tests: parse/toString for float/double
 
 ### Changed
 
--  Review round robin check test
--  Update license
+- Review round robin check test
+- Update license
 
 ## [2.3.0] - 2019-10-01
 
@@ -100,8 +113,8 @@ Initial revision with Changelog.
 
 ### Added
 
--  Property ``MJVMPortValidation.clock.seconds`` to configure the time
-   in seconds of the visible clock test (default to 10s).
+- Property ``MJVMPortValidation.clock.seconds`` to configure the time
+  in seconds of the visible clock test (default to 10s).
 
 ## [1.0.0] - 2017-09-29
 
