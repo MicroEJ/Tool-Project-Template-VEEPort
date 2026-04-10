@@ -83,8 +83,7 @@ The project contains the following subprojects:
   Some modules are described in a specific sub-folder / with some optional configuration files
   (`.properties` and / or `.xml`).
 
-- `bsp`: Contains a ready-to-use BSP software project for the <BOARD_NAME> board, including a <CIDE> project,
-  an implementation of MicroEJ Core Engine (and extensions) port on <RTOS> and the <BOARD_NAME> board support package.
+- `bsp`: Contains the Abstraction Layers for the <BOARD_NAME>.
 
 - `vee-port/extensions/front-panel`: Contains the board description and images for the Simulator.
   This project is updated once the <VEE_PORT> is built.
