@@ -1,7 +1,7 @@
 /*
  * Java
  *
- * Copyright 2013-2025 MicroEJ Corp. All rights reserved.
+ * Copyright 2013-2026 MicroEJ Corp. All rights reserved.
  * Use of this source code is governed by a BSD-style license that can be found with this software.
  */
 package com.microej.core.tests;
@@ -35,7 +35,7 @@ import ej.bon.Util;
  */
 public class MicroejCoreValidation {
 
-	private static final String VERSION = "3.5.0";
+	private static final String VERSION = "3.6.0";
 
 	private static final String PROPERTY_PREFIX = "com.microej.core.tests.";
 	private static final String OPTION_CLOCK_NB_SECONDS = "clock.seconds";
@@ -51,6 +51,21 @@ public class MicroejCoreValidation {
 	 */
 	private static final String OPTION_CAN_SET_SYSTEM_TIME = "can.set.system.time";
 	private static final boolean DEFAULT_CAN_SET_SYSTEM_TIME = true;
+
+	/**
+	 * Option that specifies how much the application time can shift in milliseconds relatively from the monotonic time
+	 * in a 5 seconds time frame.
+	 */
+	private static final String OPTION_APPLICATION_TIME_TOLERANCE_MS = "application.time.tolerance.milliseconds";
+	private static final int DEFAULT_APPLICATION_TIME_TOLERANCE_MS = 1;
+
+	/**
+	 * Option that specifies how much a sleep of 5 seconds can shift in milliseconds. The sleep function uses the
+	 * monotonic time. Only a positive shift is accepted, because we expect the sleep to last at least the specified
+	 * time.
+	 */
+	private static final String OPTION_MONOTONIC_TIME_UPPER_TOLERANCE_MS = "monotonic.time.upper.tolerance.milliseconds";
+	private static final int DEFAULT_MONOTONIC_TIME_UPPER_TOLERANCE_MS = 100;
 
 	private static final String INVALID_C_FUNCTION_MESSAGE = "C function not correctly implemented (check your libc configuration)";
 	private static final String INCOHERENT_FPU_MESSAGE = "FPU option is not coherent between MicroEJ Core and BSP";
@@ -346,10 +361,14 @@ public class MicroejCoreValidation {
 		System.out.println(
 				"-> Check application time modification (LLMJVM_IMPL_getCurrentTime and LLMJVM_IMPL_setApplicationTime validation)...");
 		final long delay = 5 * 1000;
-		final long toleranceTime = 100;
 		final long timeOffset = 50_000;
 
 		final boolean canSetSystemTime = getOptionAsBool(OPTION_CAN_SET_SYSTEM_TIME, DEFAULT_CAN_SET_SYSTEM_TIME);
+
+		final long applicationTimeToleranceMs = getOptionAsInt(OPTION_APPLICATION_TIME_TOLERANCE_MS,
+				DEFAULT_APPLICATION_TIME_TOLERANCE_MS, "milliseconds");
+		final long monotonicTimeUpperToleranceMs = getOptionAsInt(OPTION_MONOTONIC_TIME_UPPER_TOLERANCE_MS,
+				DEFAULT_MONOTONIC_TIME_UPPER_TOLERANCE_MS, "milliseconds");
 
 		if (canSetSystemTime) {
 			System.out.println("Set application time and wait for " + delay / 1000 + "s...");
@@ -368,20 +387,22 @@ public class MicroejCoreValidation {
 			final long montonicTimeAfter = Util.platformTimeMillis();
 			System.out.println("...done");
 
-			// Application and Monotonic clocks may not be synchronized.
-			// Thread.sleep() is based on Monotonic clock -> Test tolerates 1 ms difference between the 2 times.
-			long expectedApplicationTimeAfter = applicationTimeBefore + timeOffset + delay - 1;
+			long expectedApplicationTimeAfter = applicationTimeBefore + timeOffset + delay;
 			long expectedMonotonicTimeAfter = monotonicTimeBefore + delay;
 
 			// Test that modifying the application time is correctly done
+			// Application and Monotonic clocks may not be synchronized. Thread.sleep() is based on Monotonic clock.
+			// Check that the Application clock is within the specified tolerance window.
 			final String assertionMessage = "Application time not correctly set. On some platforms, the MicroEJ Core Engine is not allowed to modify the time of the system (e.g., on Linux if the process does not have the right permissions). In such a case, you can ignore this test by setting the property '"
 					+ PROPERTY_PREFIX + OPTION_CAN_SET_SYSTEM_TIME + "' to 'false'.";
-			assertTrue(assertionMessage, applicationTimeAfter >= expectedApplicationTimeAfter
-					&& applicationTimeAfter <= expectedApplicationTimeAfter + toleranceTime);
+			assertTrue(assertionMessage,
+					(applicationTimeAfter >= expectedApplicationTimeAfter - applicationTimeToleranceMs)
+							&& (applicationTimeAfter <= expectedApplicationTimeAfter + monotonicTimeUpperToleranceMs
+									+ applicationTimeToleranceMs));
 
 			// Test that modifying the application time does not impact the monotonic time.
-			assertTrue("monotonic time not modified", montonicTimeAfter >= expectedMonotonicTimeAfter
-					&& montonicTimeAfter <= expectedMonotonicTimeAfter + toleranceTime);
+			assertTrue("monotonic time not modified", (montonicTimeAfter >= expectedMonotonicTimeAfter)
+					&& (montonicTimeAfter <= expectedMonotonicTimeAfter + monotonicTimeUpperToleranceMs));
 
 		} else {
 			System.out.println("Setting application time not tested because the property "
