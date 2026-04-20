@@ -16,6 +16,7 @@ api-event =             { group = "ej.api", name = "event", version = "2.1.0" }
 api-fs =                { group = "ej.api", name = "fs", version = "2.1.1" }
 api-kf =                { group = "ej.api", name = "kf", version = "1.7.0" }
 api-gnss =              { group = "ej.api", name = "gnss", version = "2.0.0" }
+api-microai =           { group = "ej.api", name = "microai", version = "2.3.0" }
 api-microui =           { group = "ej.api", name = "microui", version = "3.6.0" }
 api-microvg =           { group = "ej.api", name = "microvg", version = "1.5.0" }
 api-net =               { group = "ej.api", name = "net", version = "1.1.4" }
@@ -64,6 +65,7 @@ testsuite-fs =                  { group = "com.microej.pack.fs", name = "fs-test
 testsuite-fs-openjdk =          { group = "com.microej.pack.fs", name = "fs-testsuite-openjdk", version = "1.0.1" }
 gnss-init-api =                 { group = "com.microej.pack.gnss", name = "gnss-init-api", version = "1.0.0" }
 testsuite-gnss =                { group = "com.microej.pack.gnss", name = "gnss-testsuite", version = "2.0.0" }
+testsuite-microai =             { group = "com.microej.pack.microai", name = "microai-testsuite", version = "2.3.0" }
 testsuite-net =                 { group = "com.microej.pack.net", name = "net-1_1-testsuite", version = "4.1.1" }
 testsuite-net-wifi =            { group = "com.microej.pack.net", name = "net-1_1-testsuite-wifi", version = "2.1.1" }
 testsuite-net-openjdk =         { group = "com.microej.pack.net", name = "net-1_1-testsuite-openjdk", version = "1.1.1" }

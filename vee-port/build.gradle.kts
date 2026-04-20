@@ -16,6 +16,7 @@ dependencies {
     microejPack(libs.pack.ui.architecture)
     microejPack(libs.pack.fs)
     microejPack(libs.pack.net)
+    // api(libs.api.microai)
     // microejPack(libs.pack.audio)
     // microejPack(libs.pack.bluetooth)
     // microejPack(libs.pack.device)
