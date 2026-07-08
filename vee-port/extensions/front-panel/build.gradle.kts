@@ -3,7 +3,8 @@ plugins {
 }
 
 microej {
-    skippedCheckers = "readme,changelog,license"
+    skippedCheckers = "readme"
+    additionalFilesDir.set(rootProject.layout.projectDirectory)
 }
 
 dependencies {
