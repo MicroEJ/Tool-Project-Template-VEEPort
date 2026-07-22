@@ -8,6 +8,22 @@ plugins {
 microej {
     architectureUsage = System.getProperty("com.microej.architecture.usage") ?: "eval" // or "prod"
     skippedCheckers = "readme,license,changelog"
+
+    // Configuration of the 'Serial to Socket Transmitter' tool, used to redirect the device traces
+    // (System.out) to a TCP socket read by the testsuite (see the 'Trace Redirection' section of
+    // 'config.properties'). Uncomment and adjust this block when the VEE Port redirects its output
+    // traces over a serial port.
+    // serialToSocket {
+    //     // The COM port the device is connected to. It usually differs from one developer to another,
+    //     // so rather than committing it here it can be overridden in a file that is not tracked by Git
+    //     // (for example by declaring the 'microej.serialPort' property in '~/.gradle/gradle.properties').
+    //     serialPort = "COM0" // Windows: "COMx" - Linux: "/dev/ttyUSBx"
+    //     socketPort = 5555   // must match 'microej.testsuite.properties.testsuite.trace.port' in 'config.properties'
+    //     baudRate = 115200
+    //     dataBits = 8
+    //     stopBits = 1
+    //     parity = "none"
+    // }
 }
 
 dependencies {

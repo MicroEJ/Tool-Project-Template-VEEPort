@@ -107,6 +107,7 @@ A Test Suite project provides 2 configurations:
 
     - [BSP Connection](https://docs.microej.com/en/latest/VEEPortingGuide/platformCreation.html#bsp-connection): check the VEE Port specific documentation to get the kind of configured BSP connection.
     - Trace Redirection (if the VEE Port requires output traces redirection): set options in sync with the Serial to Socket Transmitter options.
+      A commented example of the `serialToSocket` configuration is provided in `net/build.gradle.kts` and can be copied into any other Test Suite. The COM port is device-specific, so it is best overridden in a file that is not tracked by Git.
 
 - The Tests configuration. This is the configuration of each test, which means all the [Application Options](https://docs.microej.com/en/latest/ApplicationDeveloperGuide/applicationOptions.html).
   They are declared in the `validation/microej-testsuite-common.properties` file. 
