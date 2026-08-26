@@ -29,6 +29,62 @@ Tests can be launched:
 
 -  Follow the configuration and execution steps described in VEE Port Test Suites [documentation](../README.md).
 
+## Array Copy Performance Benchmark
+
+The `ArrayCopyPerformance` test measures `System.arraycopy()` throughput on large `byte[]` buffers and,
+optionally, asserts it against a minimum. On byte arrays `System.arraycopy()` resolves to a direct call
+into the C library copy routine, so its throughput depends on the libc and BSP configuration; a slow
+copy implementation shows up as a throughput drop. The test guards against such a regression.
+
+Four copies are measured and each is checked against its own threshold:
+
+- **aligned**: source and destination share the same word-aligned offset, in two distinct buffers;
+  its throughput drops if the BSP reverts to a byte-wise libc;
+- **misaligned**: the destination is shifted by one byte, in two distinct buffers; it additionally
+  drops if the BSP stops overriding `memmove` with a word-wide implementation;
+- **overlap right**: source and destination are in a single buffer with the destination one byte
+  above the source, which forces `memmove` to copy backwards to preserve the overlap;
+- **overlap left**: source and destination are in a single buffer with the destination one byte
+  below the source, which lets `memmove` copy forwards.
+
+The two overlapping copies also verify that `System.arraycopy()` is routed to `memmove` and not to a
+plain `memcpy`: a `memcpy` would corrupt the overlapping data and would not exhibit the
+direction-dependent behavior the overlap figures capture.
+
+When the buffers are larger than the CPU data cache and live in cacheable RAM, the copy is bounded by
+memory bandwidth rather than by the CPU, so the four copies reach essentially the same throughput and
+the thresholds guard against a bandwidth regression rather than a CPU-side alignment penalty. On a
+target without a data cache the copy is CPU-bound instead, and the aligned and misaligned figures may
+diverge.
+
+### Configuration
+
+The benchmark is configured through system properties, declared in
+[`validation/microej-testsuite-common.properties`](validation/microej-testsuite-common.properties) with
+the `microej.java.property.` prefix (for example
+`microej.java.property.com.microej.core.tests.arraycopy.min.throughput.mbps=125`).
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `com.microej.core.tests.arraycopy.min.throughput.mbps` | unset (`0`) | Minimum expected **aligned** throughput, in MB/s. When unset, the aligned throughput is only logged and the check passes. |
+| `com.microej.core.tests.arraycopy.min.throughput.misaligned.mbps` | unset (`0`) | Minimum expected **misaligned** throughput, in MB/s. When unset, the misaligned throughput is only logged and the check passes. |
+| `com.microej.core.tests.arraycopy.min.throughput.overlap.right.mbps` | unset (`0`) | Minimum expected **overlap-right** throughput, in MB/s. When unset, the overlap-right throughput is only logged and the check passes. |
+| `com.microej.core.tests.arraycopy.min.throughput.overlap.left.mbps` | unset (`0`) | Minimum expected **overlap-left** throughput, in MB/s. When unset, the overlap-left throughput is only logged and the check passes. |
+| `com.microej.core.tests.arraycopy.buffer.size.bytes` | `65536` (64 KB) | Size of each of the **two** working buffers. The default already exceeds a typical MCU data cache; larger buffers do not change the measured throughput but need a proportionally larger Java heap. |
+
+To turn the benchmark into a regression guard on a given board:
+
+1. Run the test once with the thresholds unset and read the four measured throughput values from the logs.
+2. Set the four `min.throughput` properties to a value slightly below the observed baseline.
+3. Keep `arraycopy.buffer.size.bytes` large enough to exceed the CPU data cache so the measurement
+   reflects memory bandwidth. The test allocates two buffers of that size, so `core.memory.javaheap.size`
+   (in the same properties file) must hold both plus headroom — increase it together with the buffer size.
+
+The thresholds are regression floors only. To judge whether the port reaches the hardware's potential,
+compare the measured throughputs against the theoretical memory bandwidth the silicon vendor advertises
+for the backing memory (the RAM bandwidth figures in the datasheet or reference manual) and confirm the
+port reaches the expected fraction of that peak.
+
 ## Dependencies
 
 *All dependencies are retrieved transitively by Gradle*.
@@ -58,3 +114,7 @@ N/A
 ## Restrictions
 
 None.
+
+---
+_Markdown_  
+_Build: 7E4D1F7C_
