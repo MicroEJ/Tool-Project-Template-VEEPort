@@ -10,3 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
   - Initial version of the VEE Port project.
+
+### Changed
+
+  - Make the IAR Embedded Workbench scripts configurable for any target board and debug probe.
+
+---
+_Build: 7E4D1F7C_
